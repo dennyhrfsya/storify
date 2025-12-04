@@ -1,5 +1,6 @@
 @use "variables" as *;
 @use "mixins" as *;
+@use "inheritance" as *;
 
 * {
   margin: 0;
@@ -27,11 +28,100 @@ body {
 .dx-sidebar {
   @include sidebar-base();
 }
+.dx-sidebar {
+  &--closed {
+    width: $sidebar-close-width;
+    * {
+      opacity: 0;
+      transition: opacity $sidebar-transition;
+    }
+  }
+}
+.dx-sidebar {
+  margin-left: $sidebar-close-width;
+}
+.dx-sidebar {
+  .li {
+    color: $text-color-sidebar-li;
+    font-size: $font-size-sidebar-li;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: $padding-sidebar-li;
+  }
+}
 
+.dx-sidebar {
+  .dx-nav-link {
+    color: $abu-abu-terang;
+    font-style: 21px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    &:active,
+    &:hover {
+      color: $active-hover-text-color;
+      background-color: $active-hover-bg-color;
+      text-decoration: none;
+    }
+  }
+}
+.dx-nav-icon {
+  position: relative;
+  width: 21px;
+  height: 21px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 12px 0 0;
+  &::before {
+    font-size: 22px;
+  }
+}
+
+.dx-icon-rotate {
+  transform: rotate(180deg);
+}
+
+//* Logo
+.dx-logo {
+  width: 120px;
+}
+
+//* Dropdown
+@for $i from 1 through 10 {
+  .dx-h-#{$i} {
+    $height: $i * 0.25rem;
+    height: $height;
+  }
+}
+
+//* Posisi Teks
+.dx-text-center {
+  @extend %align-center-base;
+}
+
+.dx-text-right {
+  @extend %align-right-base;
+}
+
+.dx-text-left {
+  @extend %align-left-base;
+}
+
+.dx-text-justify {
+  @extend %align-justify-base;
+}
+
+//* Breakpoint ukuran HP dan Tablet
 @media (max-width: 768px) {
   .dx-sidebar {
     display: block;
   }
 }
 
-//* Breakpoint ukuran HP dan Tablet
+@media (min-width: 768px) {
+  .dx-logo-img {
+    display: none;
+  }
+}

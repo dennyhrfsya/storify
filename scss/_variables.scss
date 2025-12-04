@@ -5,6 +5,7 @@ $prefix: "dx-";
 $putih: #fff;
 $abu-abu: #535353;
 $abu-abu-text: #a0a4a8;
+$abu-abu-terang: #ccc;
 $biru: #0652dd;
 $biru-muda: #266ef4;
 $merah: #e03244;
@@ -112,7 +113,7 @@ $focus-color: $biru;
 $base-height: 1rem;
 
 //* Check Box
-$color-border: #ccc;
+$color-border: $abu-abu-terang;
 $color-bg: $putih;
 $color-primary: $biru;
 $radius-sm: 3px;
@@ -129,3 +130,9 @@ $focus-ring-width: 3px;
 $sidebar-width: 180px;
 $sidebar-bg: $biru;
 $sidebar-transition: 0.5s;
+$sidebar-close-width: 0;
+$text-color-sidebar-li: $abu-abu-terang;
+$font-size-sidebar-li: 0.8rem;
+$padding-sidebar-li: 1rem 1.5rem;
+$active-hover-text-color: $biru-muda;
+$active-hover-bg-color: $warna-bg;

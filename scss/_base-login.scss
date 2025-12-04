@@ -1,5 +1,6 @@
 @use "variables" as *;
 @use "mixins" as *;
+@use "inheritance" as *;
 
 * {
   margin: 0;
@@ -243,7 +244,9 @@ input[type="text"] {
 
 //* Button
 .dx-btn-primary {
-  @include btn-style-primary;
+  @extend %btn-base;
+  color: $putih;
+  background-color: $biru;
   &:hover {
     color: $putih;
     background-color: $biru-muda;
@@ -252,7 +255,10 @@ input[type="text"] {
 }
 
 .dx-btn-secondary {
-  @include btn-style-secondary;
+  @extend %btn-base;
+  color: $biru;
+  background-color: $putih;
+  border-color: $biru;
   &:hover {
     color: $putih;
     background-color: $biru-muda;

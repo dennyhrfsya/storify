@@ -35,18 +35,18 @@
 					<img src="images/left-arrow-dx-white.svg">
 					<span class="tw-block tw-pl-2">Tutup</span>
 				</a>
-				<nav>
-					<ul>
-						<li>
-							<a href="admin.html" class="li active" aria-current="page">
-								<span class="home bi-house-door"></span><span id="textSidebarHome">Dashboard</span></a>
-						</li>
-						<li>
-							<a href="elements.html" class="li">
-								<span class="inbox bi-inbox"></span><span id="textSidebarInbox">Elements</span></a>
-						</li>
-					</ul>
-				</nav>
+				<ul class="tw-nav">
+					<li class="tw-nav-item tw-nav-open">
+						<a href="admin.html" class="tw-nav-link active" aria-current="page">
+							<span class="tw-nav-icon tw-nav-m bi-house-door"></span><span
+								id="textSidebarHome">Dashboard</span></a>
+					</li>
+					<li>
+						<a href="elements.html" class="tw-nav-link tw-nav-m">
+							<span class="tw-nav-icon tw-nav-m bi-inbox"></span><span
+								id="textSidebarInbox">Elements</span></a>
+					</li>
+				</ul>
 			</aside>
 
 			<!-- Script bagian sidebar untuk Tablet -->
@@ -69,21 +69,21 @@
 				<header class="tw-p-4 tw-flex tw-items-center tw-justify-between">
 
 					<!-- Script bagian logo untuk Tablet dan Hp -->
-					<img src="images/logo.png" alt="Logo" class="md-img img-tb">
+					<img src="images/logo-storify.png" alt="Logo" class="md-img img-tb">
+
 					<div class="tw-flex">
 						<a id="openBtn" class="tw-text-primary tw-text-sm hover:tw-text-primary">
-							Buka
-							<img src="images/left-arrow.svg" class="tw-inline-block" style="transform: rotate(180deg);">
+							<span>Buka</span>
+							<img src="images/left-arrow.svg" class="tw-inline-block tw-ml-2"
+								style="transform: rotate(180deg);">
 						</a>
-
 					</div>
 					<div>
 						<table>
 							<thead>
 								<tr>
 									<td>
-										<div
-											class="tw-flex tw-justify-content-end tw-items-center tw-cursor-pointer tw-">
+										<div class="tw-flex tw-items-center">
 
 											<a type="button" id="dropdownMenu1" data-bs-toggle="dropdown"
 												aria-expanded="false">
@@ -92,10 +92,11 @@
 
 											<div class="dropdown-menu edit-dropdown" aria-labelledby="dropdownMenu1">
 												<div class="tw-px-4 tw-py-3">
-													<span class="tw-block tw-font-medium tw-truncate"><u>Pesan
-															Masuk:</u>
+													<span class="tw-block tw-font-medium tw-truncate">Pesan
+														Masuk:
 													</span>
-													<p>Anda memiliki <b>0</b> pesan yang belum di baca !</p>
+													<p class="tw-cursor-pointer">Anda memiliki <b>0</b> pesan yang belum
+														di baca !</p>
 													<small class="tw-block"></small>
 												</div>
 												<hr>
@@ -104,8 +105,7 @@
 										</div>
 									</td>
 									<td>
-										<div
-											class="tw-flex tw-justify-content-end tw-items-center tw-cursor-pointer tw-">
+										<div class="tw-flex tw-justify-content-end tw-items-center">
 
 											<a type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
 												aria-expanded="false">
@@ -137,7 +137,7 @@
 
 				<div class="content-wrap">
 					<div class="container-fluid">
-						<h1 class="tw-hidden md:tw-block tw-text-primary tw-font-bold tw-text-lg">Dashboard
+						<h1 class="md:tw-block tw-text-primary tw-font-bold tw-text-lg">Dashboard
 						</h1>
 						<!-- Script bagian Dashboard-->
 						<div class="notice notice-information">

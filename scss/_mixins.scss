@@ -36,54 +36,6 @@
   outline: none;
 }
 
-//* Button
-@mixin btn-style-primary {
-  position: relative;
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 0.9rem;
-  white-space: nowrap;
-  border: 1px solid transparent;
-  padding: 0 1rem;
-  min-width: 100px;
-  min-height: 30px;
-  border-radius: 0.25rem;
-  -webkit-transition: color 0.15s ease-in-out,
-    background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
-    box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  cursor: pointer;
-  color: $putih;
-  background-color: $biru;
-  min-height: 35px;
-}
-
-@mixin btn-style-secondary {
-  position: relative;
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 0.9rem;
-  white-space: nowrap;
-  border: 1px solid transparent;
-  padding: 0 1rem;
-  min-width: 100px;
-  min-height: 30px;
-  border-radius: 0.25rem;
-  -webkit-transition: color 0.15s ease-in-out,
-    background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
-    box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  cursor: pointer;
-  color: $biru;
-  background-color: $putih;
-  border-color: $biru;
-  min-height: 35px;
-}
-
 //* Check Box
 @mixin control-reset {
   box-sizing: border-box;
@@ -141,6 +93,7 @@
   $width: $sidebar-width,
   $transition: $sidebar-transition
 ) {
+  height: 100%;
   background-color: $bg;
   position: fixed;
   width: $width;
@@ -150,4 +103,9 @@
   transition: $transition;
   overflow-x: hidden;
   cursor: pointer;
+}
+
+//* Posisi Teks
+@mixin text-align-direction($direction) {
+  text-align: $direction;
 }
