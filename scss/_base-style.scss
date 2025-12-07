@@ -1,0 +1,469 @@
+@use "variables" as *;
+@use "mixins" as *;
+@use "inheritance" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0 solid $warna-root;
+  -webkit-font-smoothing: antialiased;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+fieldset,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: $biru;
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+body {
+  font-family: $font-family-base;
+  background-color: $warna-bg;
+  color: $abu-abu;
+  margin: 0;
+}
+
+input::placeholder {
+  color: $abu-abu-text;
+  opacity: 1;
+}
+
+.dx-no-underline {
+  text-decoration: none;
+  .hover\:dx-no-underline:hover {
+    text-decoration: none;
+  }
+}
+
+.#{$prefix}container {
+  display: flex;
+}
+
+.#{$prefix}container {
+  max-width: 100%;
+  padding: 0;
+  position: relative;
+  -webkit-box-align: 1;
+  flex-grow: 1;
+}
+
+//* Padding
+// Padding-x
+// Loop dari 1 hingga 10
+@for $i from 1 through 15 {
+  .dx-px-#{$i} {
+    // 1 unit = 0.25rem - Hitung nilai padding dalam rem ($i x 0.25rem)
+    $padding: $i * 0.25rem;
+    padding-left: $padding;
+    padding-right: $padding;
+  }
+}
+
+// Padding-y
+@for $i from 1 through 15 {
+  .dx-py-#{$i} {
+    $padding: $i * 0.25rem;
+    padding-top: $padding;
+    padding-bottom: $padding;
+  }
+}
+
+// pt, pb, pl, pr 1-15
+@for $i from 1 through 15 {
+  $padding: $i * 0.25rem;
+
+  .dx-pt-#{$i} {
+    padding-top: $padding;
+  }
+  .dx-pb-#{$i} {
+    padding-bottom: $padding;
+  }
+  .dx-pl-#{$i} {
+    padding-left: $padding;
+  }
+  .dx-pr-#{$i} {
+    padding-right: $padding;
+  }
+}
+
+// Margin
+.dx-m-auto {
+  margin: auto;
+}
+
+.dx-mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dx-my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+// Margin-x
+@for $i from 1 through 15 {
+  .dx-mx-#{$i} {
+    // 1 unit = 0.25rem - Hitung nilai margin dalam rem ($i x 0.25rem)
+    $margin: $i * 0.25rem;
+    margin-left: $margin;
+    margin-right: $margin;
+  }
+}
+
+// Margin-y
+@for $i from 1 through 15 {
+  .dx-my-#{$i} {
+    // 1 unit = 0.25rem
+    $margin: $i * 0.25rem;
+    margin-top: $margin;
+    margin-bottom: $margin;
+  }
+}
+
+// mt, mb, ml, mr 1-15
+@for $i from 1 through 15 {
+  $margin: $i * 0.25rem;
+
+  .dx-mt-#{$i} {
+    margin-top: $margin;
+  }
+  .dx-mb-#{$i} {
+    margin-bottom: $margin;
+  }
+  .dx-ml-#{$i} {
+    margin-left: $margin;
+  }
+  .dx-mr-#{$i} {
+    margin-right: $margin;
+  }
+}
+
+// Margin dan Padding 0
+@include zero-spacing(margin);
+@include zero-spacing(padding);
+
+.dx-mb-30 {
+  margin-bottom: 7rem;
+}
+
+//* Ukuran teks
+@each $size-name, $size-value in $text-size {
+  .dx-text-#{$size-name} {
+    font-size: $size-value;
+  }
+}
+
+//* Iterasi melalui map membuat kelas utilitas warna secara otomatis
+// Warna
+@each $name, $value in $color {
+  // Kelas warna
+  .dx-#{$name} {
+    color: $value;
+  }
+}
+
+.hover\:dx-text-biru-muda {
+  &:hover {
+    color: $biru-muda;
+    transition: color 0.2s ease-in-out;
+    cursor: pointer;
+  }
+}
+.hover\:dx-text-abu-terang {
+  &:hover {
+    color: $abu-abu-terang;
+    font-weight: $font-weight-medium;
+    transition: color 0.2s ease-in-out;
+    cursor: pointer;
+  }
+}
+
+// Warna teks
+@each $name, $value in $color-text {
+  // Kelas teks
+  .dx-text-#{$name} {
+    color: $value;
+  }
+}
+
+// Warna background
+@each $name, $value in $color-bg {
+  // Kelas background
+  .dx-#{$name} {
+    color: $value;
+  }
+}
+
+//* Font
+// Membuat kelas utilitas untuk setiap ketebalan
+@each $name, $weight in $font-weights {
+  .dx-font-#{$name} {
+    font-weight: $weight;
+  }
+}
+
+.dx-font-italic {
+  font-style: $font-style-italic;
+}
+
+//* Label
+.dx-form-label {
+  @include form-label-style;
+}
+
+//* Form Input
+.dx-input {
+  border-bottom: 0px;
+}
+
+.dx-form-input {
+  @include input-style;
+}
+
+.dx-form-password,
+input[type="text"] {
+  @include input-style;
+}
+
+//* Shadow
+@mixin focus-shadow {
+  box-shadow: $focus-color 4px 0px 0px 0px inset;
+}
+
+.dx-form-input,
+.dx-form-password,
+.dx-form-password-show {
+  &:focus {
+    @include focus-shadow;
+  }
+}
+
+.dx-shadow {
+  box-shadow: rgba(17, 17, 17, 0.1) 0px 1px 8px !important;
+}
+
+//* Ukuran tinggi
+@for $i from 1 through 10 {
+  .dx-min-height-#{$i} {
+    min-height: $i * $base-height;
+  }
+}
+
+//* Button
+.dx-btn-primary {
+  @extend %btn-base;
+  color: $putih;
+  background-color: $biru;
+  &:hover {
+    color: $putih;
+    background-color: $biru-muda;
+    border-color: $biru-muda;
+  }
+}
+
+.dx-btn-secondary {
+  @extend %btn-base;
+  color: $biru;
+  background-color: $putih;
+  border-color: $biru;
+  &:hover {
+    color: $putih;
+    background-color: $biru-muda;
+    border-color: $biru-muda;
+  }
+}
+
+//* Check Box
+.dx-checkbox {
+  // input (checkbox/radio) hidden tapi tetap accessible
+  input {
+    @include visually-hidden-input();
+  }
+
+  label {
+    display: inline-block;
+    padding-left: $gap-left;
+
+    // box
+    &::before {
+      @include checkbox-box();
+    }
+  }
+
+  // checked state: color border berubah
+  input:checked ~ label::before {
+    border-color: $color-primary;
+  }
+
+  // checked tick
+  input:checked ~ label::after {
+    @include checkbox-tick($color-primary);
+  }
+
+  // focus ring saat keyboard navigation (untuk aksesibilitas)
+  input:focus-visible ~ label::before {
+    @include focus-ring();
+  }
+}
+
+// Reset untuk checkbox/radio native
+input[type="checkbox"],
+input[type="radio"] {
+  @include control-reset();
+}
+
+// Pointer untuk button enabled
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+//* Dropdown
+@for $i from 1 through 10 {
+  .dx-h-#{$i} {
+    $height: $i * 0.25rem;
+    height: $height;
+  }
+}
+
+//* Posisi Teks
+.dx-text-center {
+  @extend %align-center-base;
+}
+
+.dx-text-right {
+  @extend %align-right-base;
+}
+
+.dx-text-left {
+  @extend %align-left-base;
+}
+
+.dx-text-justify {
+  @extend %align-justify-base;
+}
+
+.dx-truncate {
+  @include truncate;
+}
+
+//* Modal
+.dx-modal-content {
+  margin: auto;
+  width: $modal-width;
+  @include modal-animation;
+}
+// Perlu mendefinisikan keyframes untuk animasi fade-opacity
+@keyframes fade-opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.dx-modal-exit {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 1;
+  cursor: pointer;
+}
+.dx-modal-body {
+  background-color: $color-modal-bg-light;
+  border-radius: 0.25rem;
+}
+.dx-modal-title {
+  position: relative;
+  color: $color-modal-biru;
+  font-weight: bold;
+  font-style: 1.25rem;
+  padding: 0px 40px;
+  text-align: center;
+  margin: 0 auto 30px;
+  width: fit-content;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 40px;
+    bottom: -10px;
+    width: calc(100% - 80px);
+    height: 2px;
+    background-color: $color-modal-kuning;
+    border: 0px;
+    border-radius: 2px 2px 0px 0px;
+  }
+}
+.dx-body-input {
+  flex: 1 1 0%;
+}
+.dx-modal-form-input {
+  &.password-inputs {
+    max-width: 15rem;
+  }
+  &.password-input {
+    position: relative;
+    .eyes {
+      position: absolute;
+      right: 0.5em;
+      bottom: 6px;
+      cursor: pointer;
+    }
+  }
+}
+.dx-modal-input {
+  &.dx-form-group {
+    label {
+      color: $color-modal-text-label;
+      font-size: 12px;
+    }
+    input,
+    textarea {
+      font-size: 12px;
+      border: none;
+      border-radius: 0px;
+      outline: none;
+      box-shadow: none;
+      &.dx-modal-input {
+        height: 32px;
+      }
+      &:focus {
+        border-bottom: 1px solid $color-modal-focus-border;
+      }
+    }
+  }
+}
+.dx-modal-footer {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 10px 10px;
+}
+
+//* Z-Index
+.dx-z-50 {
+  @include z-layer("sticky-header");
+}
+
+//* Breakpoint ukuran HP dan Tablet
+@include respond-to(sm, max) {
+  :root {
+    font-size: $base-font-size;
+  }
+}

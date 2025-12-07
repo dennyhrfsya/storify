@@ -2,26 +2,11 @@
 @use "mixins" as *;
 @use "inheritance" as *;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  border: 0 solid $warna-root;
-}
-
-body {
-  font-family: $font-family-base;
-  background-color: $warna-bg;
-  color: $abu-abu;
-  margin: 0;
-}
-
-.#{$prefix}container {
-  max-width: 100%;
-  padding: 0;
-  position: relative;
-  -webkit-box-align: 1;
-  flex-grow: 1;
+//* Section
+.section.dx-sidebar {
+  &--closed {
+    margin-left: $sidebar-close-width;
+  }
 }
 
 //* Sidebar
@@ -29,7 +14,7 @@ body {
   @include sidebar-base();
 }
 .dx-sidebar {
-  &--closed {
+  &.dx-sidebar--closed {
     width: $sidebar-close-width;
     * {
       opacity: 0;
@@ -37,34 +22,21 @@ body {
     }
   }
 }
-.dx-sidebar {
-  margin-left: $sidebar-close-width;
-}
-.dx-sidebar {
-  .li {
-    color: $text-color-sidebar-li;
-    font-size: $font-size-sidebar-li;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: $padding-sidebar-li;
-  }
+#openBtn {
 }
 
-.dx-sidebar {
-  .dx-nav-link {
-    color: $abu-abu-terang;
-    font-style: 21px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 1rem 1.5rem;
-    &:active,
-    &:hover {
-      color: $active-hover-text-color;
-      background-color: $active-hover-bg-color;
-      text-decoration: none;
-    }
+.dx-nav-link {
+  color: $abu-abu-terang;
+  font-size: 0.8rem;
+  display: flex;
+  -webkit-box-align: center;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  &.active,
+  &:hover {
+    color: $active-hover-text-color;
+    background-color: $active-hover-bg-color;
+    text-decoration: none;
   }
 }
 .dx-nav-icon {
@@ -86,35 +58,6 @@ body {
 //* Logo
 .dx-logo {
   width: 120px;
-}
-
-//* Dropdown
-@for $i from 1 through 10 {
-  .dx-h-#{$i} {
-    $height: $i * 0.25rem;
-    height: $height;
-  }
-}
-
-//* Posisi Teks
-.dx-text-center {
-  @extend %align-center-base;
-}
-
-.dx-text-right {
-  @extend %align-right-base;
-}
-
-.dx-text-left {
-  @extend %align-left-base;
-}
-
-.dx-text-justify {
-  @extend %align-justify-base;
-}
-
-.dx-truncate {
-  @include truncate;
 }
 
 //* Content
@@ -160,11 +103,14 @@ body {
   }
 }
 
+// Logo image
+.dx-img-ht {
+  width: 120px;
+}
+
 //* Breakpoint ukuran HP dan Tablet
+// Sidebar
 @include respond-to(md, max) {
-  .dx-sidebar {
-    display: block;
-  }
   .dx-notice {
     .dx-notice-icon {
       right: 1.25rem !important;
@@ -180,7 +126,39 @@ body {
   }
 }
 
-@include respond-to(md) {
+.dx-sidebar-ht {
+  height: 70px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px -10px 10px;
+}
+.dx-nav-link-ht {
+  color: $abu-abu-text;
+  font-size: 0.8rem;
+  &.active,
+  &:hover {
+    background-color: transparent;
+    color: $biru-muda;
+    text-decoration: none;
+  }
+}
+.dx-nav-link-ht > .bi {
+  display: block;
+  margin: 0px auto 5px;
+}
+.dx-nav-icon-ht {
+  position: relative;
+  width: 21px;
+  height: 21px;
+  display: inline-block;
+  vertical-align: middle;
+  &::before {
+    font-size: 22px;
+  }
+}
+
+@include respond-to(md, min) {
+  .dx-sidebar {
+    display: block !important;
+  }
   .md\:dx-logo-img {
     display: none;
   }
@@ -199,5 +177,9 @@ body {
 
   .md\:dx-flex-1 {
     flex: 1 1 0%;
+  }
+  // Ukuran Hp dan Tablet
+  .dx-sidebar-ht {
+    display: none;
   }
 }

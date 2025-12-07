@@ -1,6 +1,9 @@
 //* Prefix
 $prefix: "dx-";
 
+//* Font Size
+$base-font-size: 14px;
+
 //* Variable Warna
 $putih: #fff;
 $abu-abu: #535353;
@@ -128,6 +131,24 @@ $transition-fast: 0.15s ease-in-out;
 $focus-ring-color: rgba($color-primary, 0.35);
 $focus-ring-width: 3px;
 
+// Map untuk mendefinisikan semua lapisan Z-Index di aplikasi
+$z-layers: (
+  "base": 1,
+  // Elemen dasar (misalnya: konten utama)
+  "dropdown": 10,
+  // Menu drop-down
+  "sticky-header": 50,
+  // "sticky-header": 100,
+  // Header yang selalu terlihat (sticky/fixed)
+  "overlay": 500,
+  // Latar belakang gelap di belakang modal/sidebar
+  "modal": 600,
+  // Jendela Modal (di atas overlay)
+  "toast": 700,
+  // Notifikasi Toast/Alert (paling atas)
+  "dev-tools": 9999 // Untuk debugging atau alat bantu pengembangan,,,,,,,,
+);
+
 //* Halaman Admin
 //* Sidebar
 $sidebar-width: 180px;
@@ -140,6 +161,17 @@ $padding-sidebar-li: 1rem 1.5rem;
 $active-hover-text-color: $biru-muda;
 $active-hover-bg-color: $warna-bg;
 
+//* Modal
+$modal-width: 360px;
+$animation-duration: 1s;
+$animation-name: fade-opacity;
+$animation-timing: ease;
+$color-modal-bg-light: $warna-bg;
+$color-modal-biru: $biru;
+$color-modal-kuning: $kuning;
+$color-modal-text-label: $abu-abu-terang;
+$color-modal-focus-border: $biru-muda;
+
 //* Breakpoint map
 $breakpoints: (
   sm: 640px,
@@ -150,5 +182,5 @@ $breakpoints: (
   // Laptop / Small desktop
   xl: 1280px,
   // Desktop besar
-  xxl: 1536px // Monitor extra besar,,,,,,
+  xxl: 1536px // Monitor extra besar,,,,,,,,,,,,,,,,,,
 );

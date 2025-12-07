@@ -12,12 +12,10 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
 	<!-- Link CSS from normalize.css v8.0.1 -->
-	<!-- <link rel="stylesheet" type="text/css" href="css/main.chunk.css"> -->
+	<link rel="stylesheet" type="text/css" href="css/main.chunk.css">
 
-	<!-- Link CSS -->
-	<!-- <link rel="stylesheet" type="text/css" href="css/mystyle.admin.css"> -->
-	<link rel="stylesheet" type="text/css" href="css/storify-base-style.css">
-	<link rel="stylesheet" type="text/css" href="css/storify-admin-style.css">
+	<!-- Link CSS me style -->
+	<link rel="stylesheet" type="text/css" href="mystyle.admin-old.css">
 
 	<!-- Link fontGoogles -->
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700&amp;display=swap" rel="stylesheet">
@@ -28,53 +26,133 @@
 
 <body>
 	<main>
-		<div class="dx-container">
+		<div class="container">
 
-			<!-- Sidebar atau Navigasi-->
-			<aside class="dx-sidebar">
+			<!-- Sidebar -->
+			<aside id="sidebar" class="sidebar">
 				<a id="closeBtn"
-					class="d-flex w-100 justify-content-center dx-text-abu-terang dx-text-sm dx-py-5 align-items-center  hover:dx-no-underline hover:dx-text-abu-terang">
+					class="tw-flex tw-w-full tw-justify-center tw-text-abu-light tw-text-sm tw-py-5 tw-items-center hover:tw-no-underline d-close-btn">
 					<img src="images/left-arrow-dx-white.svg">
-					<span class="dx-block dx-pl-2">Tutup</span>
+					<span class="tw-block tw-pl-2">Tutup</span>
 				</a>
 				<ul class="tw-nav">
 					<li class="tw-nav-item tw-nav-open">
-						<a href="admin.html" class="dx-nav-link active" aria-current="page">
-							<span class="dx-nav-icon bi-house-door"></span><span
+						<a href="admin.html" class="tw-nav-link active" aria-current="page">
+							<span class="tw-nav-icon tw-nav-m bi-house-door"></span><span
 								id="textSidebarHome">Dashboard</span></a>
 					</li>
 					<li>
-						<a href="elements.html" class="dx-nav-link">
-							<span class="dx-nav-icon bi-inbox"></span><span id="textSidebarInbox">Elements</span></a>
+						<a href="elements.html" class="tw-nav-link tw-nav-m">
+							<span class="tw-nav-icon tw-nav-m bi-inbox"></span><span
+								id="textSidebarInbox">Elements</span></a>
 					</li>
 				</ul>
 			</aside>
 
-			<!-- Navigasi untuk Hp -->
-			<nav class="position-fixed bottom-0 w-100 bg-white dx-px-12 dx-z-50 dx-sidebar-ht">
-				<ul class="h-100 d-flex justify-content-between align-items-center">
+			<!-- Script bagian sidebar untuk Tablet -->
+			<nav class="tw-fixed tw-bottom-0 tw-w-full tw-bg-white tw-px-12 tw-z-50 sidebar-tb">
+				<ul class="tw-h-full tw-flex tw-justify-between tw-items-center">
 					<li>
-						<a href="admin.html" class="dx-nav-link-ht active" aria-current="page">
-							<span class="dx-nav-icon-ht bi bi-house-door"></span>Dashboard</a>
+						<a href="admin.html" class="li-tb active" aria-current="page">
+							<span class="home-tb bi-house-door"></span>Dashboard</a>
 					</li>
 					<li>
-						<a href="elements.html" class="dx-nav-link-ht">
-							<span class="dx-nav-icon-ht bi bi-inbox"></span>Elements</a>
+						<a href="elements.html" class="li-tb">
+							<span class="inbox-tb bi-inbox"></span>Elements</a>
 					</li>
 				</ul>
 			</nav>
 
-			<section class="section">
-				<header class="d-flex p-3 align-items-center justify-content-between">
-					<img src="images/logo-storify.png" alt="Logo Storify" class="md:dx-logo-img dx-img-ht">
-					<div class="d-flex">
-						<a id="openBtn" class="dx-text-biru dx-text-sm hover:dx-text-biru-muda">
+			<section id="section" class="section">
+
+				<!-- Script bagian header -->
+				<header class="tw-p-4 tw-flex tw-items-center tw-justify-between">
+
+					<!-- Script bagian logo untuk Tablet dan Hp -->
+					<img src="images/logo-storify.png" alt="Logo" class="md-img img-tb">
+
+					<div class="tw-flex">
+						<a id="openBtn" class="tw-text-primary tw-text-sm hover:tw-text-primary">
 							<span>Buka</span>
-							<img src="images/left-arrow.svg" class="d-inline-block dx-ml-2"
+							<img src="images/left-arrow.svg" class="tw-inline-block tw-ml-2"
 								style="transform: rotate(180deg);">
 						</a>
 					</div>
+					<div>
+						<table>
+							<thead>
+								<tr>
+									<td>
+										<div class="tw-flex tw-items-center">
+
+											<a type="button" id="dropdownMenu1" data-bs-toggle="dropdown"
+												aria-expanded="false">
+												<img src="images/bell.svg" alt="avatar" class="tw-h-8 tw-ml-4"></a>
+											<span class="tw-text-right tw-font-bold tw-truncate">0</span>
+
+											<div class="dropdown-menu edit-dropdown" aria-labelledby="dropdownMenu1">
+												<div class="tw-px-4 tw-py-3">
+													<span class="tw-block tw-font-medium tw-truncate">Pesan
+														Masuk:
+													</span>
+													<p class="tw-cursor-pointer">Anda memiliki <b>0</b> pesan yang belum
+														di baca !</p>
+													<small class="tw-block"></small>
+												</div>
+												<hr>
+											</div>
+
+										</div>
+									</td>
+									<td>
+										<div class="tw-flex tw-justify-content-end tw-items-center">
+
+											<a type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
+												aria-expanded="false">
+												<img src="images/avatar-placeholder.png" alt="avatar"
+													class="tw-h-8 tw-ml-4"></a>
+											<span class="tw-text-right tw-font-bold tw-truncate">&nbsp; DENNY</span>
+
+											<div class="dropdown-menu edit-dropdown" aria-labelledby="dropdownMenu2">
+												<div class="tw-px-4 tw-py-3">
+													<span class="tw-block tw-font-medium tw-truncate">Hai DENNY
+														HERFANSYA,</span>
+													<small class="tw-block">dennyherfansya10@gmail.com</small>
+												</div>
+												<hr>
+												<a href="login.html" class="tw-text-primary hover:tw-no-underline">
+													<div class="tw-px-4 tw-py-3">
+														<span>Logout</span>
+													</div>
+												</a>
+											</div>
+
+										</div>
+									</td>
+								</tr>
+							</thead>
+						</table>
+					</div>
 				</header>
+
+				<div class="content-wrap">
+					<div class="container-fluid">
+						<h1 class="md:tw-block tw-text-primary tw-font-bold tw-text-lg">Dashboard
+						</h1>
+						<!-- Script bagian Dashboard-->
+						<div class="notice notice-information">
+							<div class="notice-icon" style="--max-width: 10rem;">
+								<img src="images/icon-admin.png" alt="notif" class="img-fluid">
+							</div>
+							<div class="row notice-body">
+								<div class="notice-body-text" style="--padding-right:calc(10rem + 3rem);">
+									<h3 class="notice-title">Selamat Datang !</h3>
+									<p>Anda berhasil masuk <strong>Denny
+											Herfansya</strong></p>
+								</div>
+							</div>
+						</div>
+					</div>
 			</section>
 		</div>
 	</main>
@@ -167,7 +245,7 @@
 		crossorigin="anonymous"></script>
 	<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js"
 		data-cf-settings="65818a07c709d4a0ee7047e0-|49" defer=""></script>
-	<script type="text/javascript" src="js/admin.js">
+	<script type="text/javascript" src="js/admin-old.js">
 	</script>
 </body>
 

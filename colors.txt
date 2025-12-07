@@ -6,3 +6,94 @@ Red : #e03244
 Notice Success : #edf7f3
 Notice Warning : #fcf5e3
 Notice Error : #fbe9eb
+
+
+<section id="section" class="section">
+				<!-- Script bagian header -->
+				<header class="tw-p-4 tw-flex tw-items-center tw-justify-between">
+					<!-- Script bagian logo untuk Tablet dan Hp -->
+					<img src="images/logo-storify.png" alt="Logo" class="md-img img-tb">
+					<div class="tw-flex">
+						<a id="openBtn" class="tw-text-primary tw-text-sm hover:tw-text-primary">
+							<span>Buka</span>
+							<img src="images/left-arrow.svg" class="tw-inline-block tw-ml-2"
+								style="transform: rotate(180deg);">
+						</a>
+					</div>
+					<div>
+						<table>
+							<thead>
+								<tr>
+									<td>
+										<div class="tw-flex tw-items-center">
+
+											<a type="button" id="dropdownMenu1" data-bs-toggle="dropdown"
+												aria-expanded="false">
+												<img src="images/bell.svg" alt="avatar" class="tw-h-8 tw-ml-4"></a>
+											<span class="tw-text-right tw-font-bold tw-truncate">0</span>
+
+											<div class="dropdown-menu edit-dropdown" aria-labelledby="dropdownMenu1">
+												<div class="tw-px-4 tw-py-3">
+													<span class="tw-block tw-font-medium tw-truncate">Pesan
+														Masuk:
+													</span>
+													<p class="tw-cursor-pointer">Anda memiliki <b>0</b> pesan yang belum
+														di baca !</p>
+													<small class="tw-block"></small>
+												</div>
+												<hr>
+											</div>
+
+										</div>
+									</td>
+									<td>
+										<div class="tw-flex tw-justify-content-end tw-items-center">
+
+											<a type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
+												aria-expanded="false">
+												<img src="images/avatar-placeholder.png" alt="avatar"
+													class="tw-h-8 tw-ml-4"></a>
+											<span class="tw-text-right tw-font-bold tw-truncate">&nbsp; DENNY</span>
+
+											<div class="dropdown-menu edit-dropdown" aria-labelledby="dropdownMenu2">
+												<div class="tw-px-4 tw-py-3">
+													<span class="tw-block tw-font-medium tw-truncate">Hai DENNY
+														HERFANSYA,</span>
+													<small class="tw-block">dennyherfansya10@gmail.com</small>
+												</div>
+												<hr>
+												<a href="login.html" class="tw-text-primary hover:tw-no-underline">
+													<div class="tw-px-4 tw-py-3">
+														<span>Logout</span>
+													</div>
+												</a>
+											</div>
+
+										</div>
+									</td>
+								</tr>
+							</thead>
+						</table>
+					</div>
+				</header>
+
+				<div class="content-wrap">
+					<div class="container-fluid">
+						<h1 class="md:tw-block tw-text-primary tw-font-bold tw-text-lg">Dashboard
+						</h1>
+						<!-- Script bagian Dashboard-->
+						<div class="notice notice-information">
+							<div class="notice-icon" style="--max-width: 10rem;">
+								<img src="images/icon-admin.png" alt="notif" class="img-fluid">
+							</div>
+							<div class="row notice-body">
+								<div class="notice-body-text" style="--padding-right:calc(10rem + 3rem);">
+									<h3 class="notice-title">Selamat Datang !</h3>
+									<p>Anda berhasil masuk <strong>Denny
+											Herfansya</strong></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>

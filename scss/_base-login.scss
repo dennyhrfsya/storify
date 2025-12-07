@@ -2,307 +2,11 @@
 @use "mixins" as *;
 @use "inheritance" as *;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  border: 0 solid $warna-root;
-}
-
-body {
-  font-family: $font-family-base;
-  background-color: $warna-bg;
-  color: $abu-abu;
-  margin: 0;
-}
-
-input::placeholder {
-  color: $abu-abu-text;
-  opacity: 1;
-}
-
-.dx-no-underline {
-  text-decoration: none;
-  .hover\:dx-no-underline:hover {
-    margin-bottom: 7rem;
-  }
-}
-
-.#{$prefix}container {
-  display: flex;
-}
-
-//* Padding
-// Padding-x
-// Loop dari 1 hingga 10
-@for $i from 1 through 10 {
-  .dx-px-#{$i} {
-    // 1 unit = 0.25rem - Hitung nilai padding dalam rem ($i x 0.25rem)
-    $padding: $i * 0.25rem;
-    padding-left: $padding;
-    padding-right: $padding;
-  }
-}
-
-// Padding-y
-@for $i from 1 through 10 {
-  .dx-py-#{$i} {
-    $padding: $i * 0.25rem;
-    padding-top: $padding;
-    padding-bottom: $padding;
-  }
-}
-
-// pt, pb, pl, pr 1-15
-@for $i from 1 through 15 {
-  $padding: $i * 0.25rem;
-
-  .dx-pt-#{$i} {
-    padding-top: $padding;
-  }
-  .dx-pb-#{$i} {
-    padding-bottom: $padding;
-  }
-  .dx-pl-#{$i} {
-    padding-left: $padding;
-  }
-  .dx-pr-#{$i} {
-    padding-right: $padding;
-  }
-}
-
-// Margin
-.dx-m-auto {
-  margin: auto;
-}
-
-.dx-mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.dx-my-auto {
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-// Margin-x
-@for $i from 1 through 15 {
-  .dx-mx-#{$i} {
-    // 1 unit = 0.25rem - Hitung nilai margin dalam rem ($i x 0.25rem)
-    $margin: $i * 0.25rem;
-    margin-left: $margin;
-    margin-right: $margin;
-  }
-}
-
-// Margin-y
-@for $i from 1 through 15 {
-  .dx-my-#{$i} {
-    // 1 unit = 0.25rem
-    $margin: $i * 0.25rem;
-    margin-top: $margin;
-    margin-bottom: $margin;
-  }
-}
-
-// mt, mb, ml, mr 1-15
-@for $i from 1 through 15 {
-  $margin: $i * 0.25rem;
-
-  .dx-mt-#{$i} {
-    margin-top: $margin;
-  }
-  .dx-mb-#{$i} {
-    margin-bottom: $margin;
-  }
-  .dx-ml-#{$i} {
-    margin-left: $margin;
-  }
-  .dx-mr-#{$i} {
-    margin-right: $margin;
-  }
-}
-
-// Margin dan Padding 0
-@include zero-spacing(margin);
-@include zero-spacing(padding);
-
-.dx-mb-30 {
-  margin-bottom: 7rem;
-}
-
-//* Ukuran teks
-@each $size-name, $size-value in $text-size {
-  .dx-text-#{$size-name} {
-    font-size: $size-value;
-  }
-}
-
-//* Iterasi melalui map membuat kelas utilitas warna secara otomatis
-// Warna
-@each $name, $value in $color {
-  // Kelas warna
-  .dx-#{$name} {
-    color: $value;
-  }
-}
-
-.hover\:dx-font-biru-muda {
-  &:hover {
-    color: $biru-muda;
-    transition: color 0.2s ease-in-out;
-    cursor: pointer;
-  }
-}
-
-// Warna teks
-@each $name, $value in $color-text {
-  // Kelas teks
-  .dx-text-#{$name} {
-    color: $value;
-  }
-}
-
-// Warna background
-@each $name, $value in $color-bg {
-  // Kelas background
-  .dx-#{$name} {
-    color: $value;
-  }
-}
-
-//* Font
-// Membuat kelas utilitas untuk setiap ketebalan
-@each $name, $weight in $font-weights {
-  .dx-font-#{$name} {
-    font-weight: $weight;
-  }
-}
-
-.dx-font-italic {
-  font-style: $font-style-italic;
-}
-
-//* Label
-.dx-form-label {
-  @include form-label-style;
-}
-
-//* Form Input
-.dx-input {
-  border-bottom: 0px;
-}
-
-.dx-form-input {
-  @include input-style;
-}
-
-.dx-form-password,
-input[type="text"] {
-  @include input-style;
-}
-
-//* Shadow
-@mixin focus-shadow {
-  box-shadow: $focus-color 4px 0px 0px 0px inset;
-}
-
-.dx-form-input,
-.dx-form-password,
-.dx-form-password-show {
-  &:focus {
-    @include focus-shadow;
-  }
-}
-
-.dx-shadow {
-  box-shadow: rgba(17, 17, 17, 0.1) 0px 1px 8px !important;
-}
-
 //* Icon
 .dx-icon-eye {
   position: absolute;
   right: 1rem;
   top: 17px;
-}
-
-//* Ukuran tinggi
-@for $i from 1 through 10 {
-  .dx-min-height-#{$i} {
-    min-height: $i * $base-height;
-  }
-}
-
-//* Button
-.dx-btn-primary {
-  @extend %btn-base;
-  color: $putih;
-  background-color: $biru;
-  &:hover {
-    color: $putih;
-    background-color: $biru-muda;
-    border-color: $biru-muda;
-  }
-}
-
-.dx-btn-secondary {
-  @extend %btn-base;
-  color: $biru;
-  background-color: $putih;
-  border-color: $biru;
-  &:hover {
-    color: $putih;
-    background-color: $biru-muda;
-    border-color: $biru-muda;
-  }
-}
-
-//* Check Box
-.dx-checkbox {
-  // input (checkbox/radio) hidden tapi tetap accessible
-  input {
-    @include visually-hidden-input();
-  }
-
-  label {
-    display: inline-block;
-    padding-left: $gap-left;
-
-    // box
-    &::before {
-      @include checkbox-box();
-    }
-  }
-
-  // checked state: color border berubah
-  input:checked ~ label::before {
-    border-color: $color-primary;
-  }
-
-  // checked tick
-  input:checked ~ label::after {
-    @include checkbox-tick($color-primary);
-  }
-
-  // focus ring saat keyboard navigation (untuk aksesibilitas)
-  input:focus-visible ~ label::before {
-    @include focus-ring();
-  }
-}
-
-// Reset untuk checkbox/radio native
-input[type="checkbox"],
-input[type="radio"] {
-  @include control-reset();
-}
-
-// Pointer untuk button enabled
-[type="button"]:not(:disabled),
-[type="reset"]:not(:disabled),
-[type="submit"]:not(:disabled),
-button:not(:disabled) {
-  cursor: pointer;
 }
 
 //* Background bagian kanan
@@ -314,9 +18,9 @@ button:not(:disabled) {
 }
 
 //* Breakpoint Ukuran HP dan Tablet
-// Konten bagian kiri
-@media (min-width: 512px) {
+@include respond-to(md, min) {
   .dx-container {
+    // Konten bagian kanan
     .dx-right-content {
       background-color: $biru;
       flex: 1 1 0%;
@@ -331,18 +35,7 @@ button:not(:disabled) {
         height: 100vh;
       }
     }
-  }
-}
-
-@media (max-width: 512px) {
-  .dx-min-h-screen {
-    height: 100vh;
-  }
-}
-
-// Konten bagian kanan
-@media (min-width: 512px) {
-  .dx-container {
+    // Konten bagian kiri
     .dx-left-content {
       max-width: 384px;
       padding: 2.5rem 2rem;
@@ -350,7 +43,13 @@ button:not(:disabled) {
   }
 }
 
-@media (min-width: 1024px) {
+@include respond-to(md, max) {
+  .dx-min-h-screen {
+    height: 100vh;
+  }
+}
+
+@include respond-to(lg, min) {
   .dx-login-background {
     background-size: contain !important;
     background-position: center !important;

@@ -1,4 +1,6 @@
 @use "variables" as *;
+@use "sass:map";
+
 //* Login
 // Margin dan Padding 0
 @mixin zero-spacing($property) {
@@ -115,14 +117,25 @@
   white-space: nowrap;
 }
 
+//* Modal
+@mixin modal-animation {
+  animation: $animation-duration $animation-timing 0s 1 normal none running
+    $animation-name;
+}
+
+//* Z-Index
+@mixin z-layer($layer) {
+  z-index: map.get($z-layers, $layer);
+}
+
 //* Breakpoint map
 @mixin respond-to($breakpoint, $type: min) {
   @if $type == min {
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
       @content;
     }
   } @else if $type == max {
-    @media (max-width: (map-get($breakpoints, $breakpoint) - 1)) {
+    @media (max-width: (map.get($breakpoints, $breakpoint) - 1)) {
       @content;
     }
   }

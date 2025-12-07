@@ -1,13 +1,13 @@
 //* Block scope
 const toggleSidebarWithClasses = function () {
   // Ambil elemen berdasarkan kelas atau ID unik
-  const sidebar = document.querySelector(".dx-sidebar");
+  const sidebar = document.querySelector(".sidebar");
   const section = document.querySelector(".section");
   const closeBtn = document.getElementById("closeBtn");
   const openBtn = document.getElementById("openBtn");
 
   // Nama kelas yang akan digunakan untuk status 'tertutup'
-  const CLOSED_CLASS = "dx-sidebar--closed";
+  const CLOSED_CLASS = "sidebar--closed";
 
   // Fungsi untuk BUKA Sidebar (Hapus kelas tertutup)
   const openSidebar = () => {
