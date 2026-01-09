@@ -131,8 +131,9 @@
                     <div class="container-fluid">
                         <h2 class="md:dx-block dx-text-biru dx-font-bold dx-text-lg dx-mb-4">All Item
                         </h2>
+
                         <!-- Bagian profile user -->
-                        <div class="d-grid mb-5" style="grid-template-columns: 1fr;">
+                        <div class="dx-mb-12" style="grid-template-columns: 1fr;">
                             <div class="d-flex justify-content-center align-items-center">
                                 <div>
                                     <img src="images/avatar-placeholder.png" alt="" class="rounded-circle dx-avatar">
@@ -153,8 +154,7 @@
                         </div>
 
                         <!-- Bagian info box -->
-                        <div class="d-grid gap-5 text-center mb-5" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
-
+                        <div class="dx-grid dx-mb-12">
                             <div class="col dx-bg-putih dx-bl-hijau rounded-end">
                                 <div class="card-body p-3">
                                     <h5 class="card-title">Total</h5>
@@ -180,6 +180,66 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Bagian validasi -->
+                        <div class="dx-mb-12">
+                            <div class="dx-notice dx-notice-success">
+                                <div class="dx-notice-title">Sukses !</div>
+                                <div class="dx-notice-icon">
+                                    <img src="./images/icon-success.png" alt="sukses" class="img-fluid">
+                                </div>
+                                <div class="row dx-notice-body">
+                                    <div class="dx-notice-body-text">
+                                        <p>Data berhasil di <strong>Tambah</strong>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="dx-notice dx-notice-error">
+								<h3 class="dx-notice-title">Gagal !</h3>
+								<div class="dx-notice-icon">
+									<img src="./images/icon-danger.png" alt="gagal" class="img-fluid">
+								</div>
+								<div class="row dx-notice-body">
+									<div class="dx-notice-body-text">
+										<p>Data gagal di <strong>Hapus</strong>.</p>
+									</div>
+								</div>
+							</div>
+
+                            <div class="dx-notice dx-notice-warning">
+								<h3 class="dx-notice-title">Peringatan !</h3>
+								<div class="dx-notice-icon">
+									<img src="./images/icon-warning.png" alt="peringatan" class="img-fluid">
+								</div>
+								<div class="row dx-notice-body">
+									<div class="dx-notice-body-text" style="--padding-right:calc(10rem + 3rem);">
+										<p>Data sedang di <strong>Tangguhkan</strong>.</p>
+									</div>
+								</div>
+							</div>
+                        </div>
+
+                        <!-- Bagian navigasi link -->
+                         <div class="w-50 mx-auto dx-mb-12">
+                                <ul class="dx-title-card d-flex nav dx-mb-4 justify-content-around">
+                                    <li class="nav-item sm:dx-text-lg">
+                                        <a class="nav-link text-center dx-title-card active">Akun</a>
+                                    </li>
+                                    <li class="nav-item sm:dx-text-lg">
+                                        <a class="nav-link text-center dx-title-card">Unknown</a>
+                                    </li>
+                                </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="#tab_1">
+
+                                </div>
+                                <div class="">
+
+                                </div>
+                            </div>
+                         </div>
                     </div>
                 </div>
             </section>

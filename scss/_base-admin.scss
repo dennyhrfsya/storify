@@ -187,6 +187,76 @@ img.dx-avatar {
   color: $abu-abu-text;
 }
 
+// Grid
+.dx-grid {
+  display: grid;
+  gap: 2rem;
+  text-align: center;
+  margin-bottom: 5em;
+
+  // Mobile
+  grid-template-columns: 1fr;
+  // Tablet
+  @include respond-to(md, min) {
+    grid-template-columns: 1fr 1fr;
+  }
+  // Desktop
+  @include respond-to(xl, min) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+// Navlink - Nesting
+ul.dx-title-card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  padding-left: 0;
+  border-bottom: 1px solid rgb(239, 238, 237);
+}
+
+li.dx-title-card {
+  font-weight: 500;
+  min-width: 100px;
+  padding: 0 20px;
+
+  &:first-child {
+    padding-left: 0;
+  }
+}
+
+.dx-title-card {
+  .nav-link.dx-title-card {
+    padding: 0 0 5px;
+    position: relative;
+    font-weight: normal;
+
+    &:visited {
+      color: rgb(204, 204, 204);
+    }
+
+    &.active,
+    &:hover {
+      font-weight: 500;
+      color: $biru !important;
+
+      &::after {
+        content: " ";
+        position: absolute;
+        bottom: -1px;
+        display: block;
+        width: 100%;
+        border-bottom: 2px solid $kuning;
+      }
+    }
+  }
+}
+
+.li {
+  @include li-style($biru-muda, $putih);
+}
+
 //* Breakpoint ukuran HP dan Tablet
 // Sidebar
 @include respond-to(md, max) {
@@ -268,5 +338,11 @@ img.dx-avatar {
   }
   .dx-notice-body-text {
     padding-right: calc(10rem + 3rem);
+  }
+}
+
+@include respond-to(sm, min) {
+  .sm\:dx-text-lg {
+    font-size: 1.125rem;
   }
 }

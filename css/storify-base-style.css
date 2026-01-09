@@ -10,7 +10,6 @@
   min-width: 100px;
   min-height: 30px;
   border-radius: 0.25rem;
-  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   cursor: pointer;
   min-height: 35px;
@@ -68,6 +67,11 @@ body {
   background-color: #fafafa;
   color: #535353;
   margin: 0;
+}
+
+input::-moz-placeholder {
+  color: #a0a4a8;
+  opacity: 1;
 }
 
 input::placeholder {
@@ -1223,6 +1227,18 @@ input[type=text] {
   border-color: #266ef4;
 }
 
+.dx-btn:focus, .dx-btn.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.dx-btn-primary:focus, .dx-btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+.dx-btn-secondary:focus, .dx-btn-secondary.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
 .dx-checkbox input {
   position: absolute;
   top: 0.25rem;
@@ -1360,6 +1376,7 @@ button:not(:disabled) {
   padding: 0px 40px;
   text-align: center;
   margin: 0 auto 30px;
+  width: -moz-fit-content;
   width: fit-content;
 }
 .dx-modal-title::after {

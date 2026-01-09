@@ -234,16 +234,6 @@ span strong {
   }
 }
 
-// //* Grid
-// .dx-grid {
-//   grid-template-columns: 1fr 1fr 1fr;
-// }
-// @include respond-to(md, max) {
-//   .dx-grid {
-//     grid-template-columns: 1fr;
-//   }
-// }
-
 //* Font
 // Membuat kelas utilitas untuk setiap ketebalan
 @each $name, $weight in $font-weights {
@@ -322,6 +312,31 @@ input[type="text"] {
     border-color: $biru-muda;
   }
 }
+
+// Button focus - Nesting
+.dx-btn {
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+
+  &-primary {
+    &:focus,
+    &.focus {
+      box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+    }
+  }
+
+  &-secondary {
+    &:focus,
+    &.focus {
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+  }
+}
+
 
 //* Check Box
 .dx-checkbox {
