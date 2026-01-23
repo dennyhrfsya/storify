@@ -1,0 +1,15 @@
+Warna utama : #0652dd, rgb(6, 82, 221)
+Button hover : #266ef4 , rgb(38, 110, 244)
+Green : #32ba7c
+Yellow : #f1c40f
+Red : #e03244
+Notice Success : #edf7f3
+Notice Warning : #fcf5e3
+Notice Error : #fbe9eb
+
+Accordion
+- accordion item
+- accordion header
+- accordion button
+- accordion body
+- accordion collapse

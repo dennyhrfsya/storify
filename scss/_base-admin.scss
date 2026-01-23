@@ -319,6 +319,7 @@ li.dx-title-card {
 
     .dx-card-item {
       display: flex;
+      flex-wrap: wrap;
       // flex-direction: column;
       justify-content: space-between;
       align-items: center;
@@ -345,6 +346,9 @@ li.dx-title-card {
 //* Breakpoint ukuran HP dan Tablet
 // Sidebar
 @include respond-to(md, max) {
+  .sm\:dx-margin-bottom-end {
+    margin-bottom: 7em;
+  }
   .dx-section {
     margin: 0px 0px 30px 180px;
     margin-left: 0;
@@ -393,6 +397,47 @@ li.dx-title-card {
   }
 }
 
+//* Table
+.dx-table-title {
+  position: relative;
+  font-size: 24px;
+  line-height: 30px;
+  margin-bottom: 28px;
+  color: $table-title-color;
+  font-weight: 600;
+    &.dx-with-border:before {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100px;
+      min-height: 0px;
+      border: 1px solid $table-border-color;
+    }
+    &.dx-with-border.dx-table-text-left:before {
+      left: auto;
+    }
+}
+
+.dx-inner-table {
+  margin: 2em 0px;
+  & > .table-responsive {
+    background-color: $table-background;
+    border-radius: 4px;
+    padding: 0px 15px;
+  }
+}
+
+@include respond-to(md, max) {
+  .dx-table {
+      background-color: $table-background;
+      border-radius: 4px;
+      box-shadow: $table-box-shadow;
+      padding: 15px;
+  }
+}
+
+
 @include respond-to(md, min) {
   .dx-sidebar {
     display: block !important;
@@ -426,8 +471,22 @@ li.dx-title-card {
   }
 }
 
+
 @include respond-to(sm, min) {
   .sm\:dx-text-lg {
     font-size: 1.125rem;
   }
+}
+
+@include respond-to(xs, max) {
+  .dx-table-title {
+    font-size: 20px!important;
+    line-height: 20px!important;
+  }
+}
+
+@include respond-to(xs, min) {
+  .dx-table-title.dx-With-border.dx-table-text-left {
+      text-align: left;
+    }
 }

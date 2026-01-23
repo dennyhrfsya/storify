@@ -138,6 +138,50 @@
   } 
 }
 
+//* Radio
+@mixin radio-circle($size: $radio-size, $border-color: $radio-border-color) {
+  content: "";
+  display: inline-block;
+  width: $size;
+  height: $size;
+  background-color: $putih;
+  border: 1px solid $radio-border-color;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 0.5em;
+  transition: border-color 0.2s ease;
+}
+
+@mixin radio-circle-frame($size: $radio-size, $border-color: $radio-border-color) {
+  content: "";
+  display: inline-block;
+  width: $size;
+  height: $size;
+  border: 1px solid $radio-color;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 0.5em;
+  transition: border-color 0.2s ease;
+}
+
+// Mixin titik isi radio
+@mixin radio-dot($color: $radio-color, $size: $radio-size-dot) {
+  content: "";
+  position: absolute;
+  width: $size;
+  height: $size;
+  background-color: $color;
+  border-radius: 50%;
+  top: 50%;
+  left: 3px; // sesuaikan dengan posisi lingkaran
+  transform: translateY(-50%);
+}
+
+// Focus ring untuk aksesibilitas
+@mixin focus-ring($color: $radio-form-focus) {
+  box-shadow: 0 0 0 3px rgba($color, 0.3);
+}
+
 //* Breakpoint map
 @mixin respond-to($breakpoint, $type: min) {
   @if $type == min {

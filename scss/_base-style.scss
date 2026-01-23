@@ -390,8 +390,9 @@ span strong {
 }
 
 // Reset untuk checkbox/radio native
-input[type="checkbox"],
-input[type="radio"] {
+input[type="checkbox"]
+// ,input[type="radio"] 
+{
   @include control-reset();
 }
 
@@ -402,6 +403,8 @@ input[type="radio"] {
 button:not(:disabled) {
   cursor: pointer;
 }
+
+
 
 //* Dropdown
 @for $i from 1 through 10 {
@@ -531,7 +534,7 @@ button:not(:disabled) {
 
 //* Badge - Loop
 .dx-badge {
-  display: inline-block;
+  // display: inline-block;
   padding: 0.4em 1.025em;
   font-size: 0.625rem;
   font-weight: 600;
@@ -562,6 +565,10 @@ button:not(:disabled) {
 }
 
 //* Form Control
+.dx-form-group {
+  margin-bottom: 1em;
+}
+
 .dx-form-control {
   max-width: 400px;
   margin: 0 auto;
@@ -569,11 +576,52 @@ button:not(:disabled) {
   flex-direction: column;
   gap: 1.5rem;
 
+  &.dx-form-group {
+    margin-bottom: 1em;
+  }
+
   label {
     font-weight: 500;
     margin-bottom: 0.4em;
     display: block;
     color: $abu-abu;
+  }
+
+  .dx-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 100%;
+      font-size: $form-font;
+      padding: 0.5rem 2.5rem 0.5rem 0.75rem; // padding kanan untuk icon
+      border: none;
+      border-bottom: 1px solid $form-border;
+      // background: transparent;
+      background: $putih;
+      transition: border-color 0.2s ease;
+
+      &:focus {
+      outline: none;
+      border-bottom: 1px solid $form-focus;
+      }
+      
+      &::placeholder {
+        color: #aaa;
+      }
+    }
+
+    .dx-icon {
+      position: absolute;
+      right: 0.75rem;
+      color: #888;
+      pointer-events: none;
+
+      i {
+        font-size: 1.25rem;
+      }
+    }
   }
 
   input {
@@ -585,6 +633,57 @@ button:not(:disabled) {
     // background: transparent;
     background: $putih;
     transition: border-color 0.2s ease;
+    
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid $form-focus;
+    }
+    
+    &::placeholder {
+      color: #aaa;
+    }
+
+    &.dx-input-invalid:focus {
+      outline: none;
+      border-bottom: 1px solid $form-focus-invalid;
+    }
+
+    &.dx-input-disable {
+      outline: none;
+      border-bottom: 1px solid $form-focus;
+    }
+
+    &::file-selector-button { 
+      padding: 0.3em 0.8em; 
+      margin-right: 0.6em; 
+      border: none; 
+      border-radius: 4px; 
+      background-color: $form-focus; 
+      color: $putih; 
+      font-size: $form-font * 0.85; 
+      cursor: pointer; 
+      transition: background-color 0.2s ease;
+
+      &:hover { 
+        background-color: darken($form-focus, 5%); 
+      }
+    }
+  }
+
+  input[type="file"] {
+    outline: none;
+    border-bottom: none;
+  }
+
+  // Textarea
+  textarea {
+    @extend %form-input;
+    min-height: 120px;
+    resize: vertical;
+
+    &:focus-visible{
+      outline: none;
+    }
 
     &:focus {
       outline: none;
@@ -595,7 +694,34 @@ button:not(:disabled) {
       color: #aaa;
     }
   }
+
+  // Select
+  select {
+    width: 100%;
+    font-size: $form-font;
+    padding: 0.4em 0.8em;
+    border: none;
+    border-bottom: 1px solid $form-border;
+    background: $putih;
+    transition: border-color 0.2s ease;
+
+    // Hilangkan default arrow
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-image: url('/vendor/bootstrap-icons/chevron-down.svg'); // ganti dengan path icon kamu
+    background-repeat: no-repeat;
+    background-position: right 0.8em center;
+    background-size: 1em;
+
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid $form-focus;
+    }
+  }
 }
+
 
 //* Modal
 body.modal-open {
@@ -666,8 +792,6 @@ body.modal-open {
 }
 
 .dx-modal-input {
-  &.form-group {
-    margin-bottom: 1em;
     label {
       color: $modal-text-gray;
       font-size: 12px;
@@ -690,7 +814,6 @@ body.modal-open {
     input {
       height: 32px;
     }
-  }
 }
 
 .dx-modal-footer {
@@ -698,6 +821,51 @@ body.modal-open {
   justify-content: space-around;
   margin: 20px 10px 10px;
 }
+
+//* Radios
+.dx-radio {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 1.5em;
+
+  input[type="radio"] {
+    @include visually-hidden-input();
+  }
+
+  label {
+    position: relative;
+    cursor: pointer;
+    padding-left: 1.8em;
+
+    &::before {
+      @include radio-circle();
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  // checked state
+  // input[type="radio"]:checked ~ label::before {
+  //   border-color: $radio-border-color;
+  // }
+
+  input[type="radio"]:checked ~ label::after {
+    @include radio-dot();
+  }
+
+  // focus state
+  input[type="radio"]:checked ~ label::before {
+    @include radio-circle-frame();
+  }
+  
+  input[type="radio"]:focus-visible ~ label::before {
+    @include focus-ring();
+  }
+}
+
 
 //* Breakpoint ukuran HP dan Tablet
 @include respond-to(sm, max) {

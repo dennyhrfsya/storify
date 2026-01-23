@@ -291,6 +291,7 @@ li.dx-title-card:first-child {
 }
 .dx-card.dx-card-body .dx-card-item {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
@@ -309,6 +310,9 @@ li.dx-title-card:first-child {
 }
 
 @media (max-width: 767px) {
+  .sm\:dx-margin-bottom-end {
+    margin-bottom: 7em;
+  }
   .dx-section {
     margin: 0px 0px 30px 180px;
     margin-left: 0;
@@ -356,6 +360,44 @@ li.dx-title-card:first-child {
   font-size: 22px;
 }
 
+.dx-table-title {
+  position: relative;
+  font-size: 24px;
+  line-height: 30px;
+  margin-bottom: 28px;
+  color: #0652dd;
+  font-weight: 600;
+}
+.dx-table-title.dx-with-border:before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100px;
+  min-height: 0px;
+  border: 1px solid #f1c40f;
+}
+.dx-table-title.dx-with-border.dx-table-text-left:before {
+  left: auto;
+}
+
+.dx-inner-table {
+  margin: 2em 0px;
+}
+.dx-inner-table > .table-responsive {
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 0px 15px;
+}
+
+@media (max-width: 767px) {
+  .dx-table {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.05) 2px 2px 12px !important;
+    padding: 15px;
+  }
+}
 @media (min-width: 768px) {
   .dx-sidebar {
     display: block !important;
@@ -385,5 +427,16 @@ li.dx-title-card:first-child {
 @media (min-width: 640px) {
   .sm\:dx-text-lg {
     font-size: 1.125rem;
+  }
+}
+@media (max-width: 575px) {
+  .dx-table-title {
+    font-size: 20px !important;
+    line-height: 20px !important;
+  }
+}
+@media (min-width: 576px) {
+  .dx-table-title.dx-With-border.dx-table-text-left {
+    text-align: left;
   }
 }/*# sourceMappingURL=storify-admin-style.css.map */

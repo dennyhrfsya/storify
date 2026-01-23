@@ -49,3 +49,25 @@
 %align-justify-base {
   text-align: justify;
 }
+
+//* Form Control
+%form-input {
+   width: 100%;
+    font-size: $form-font;
+    padding: 0.4em 0.8em;
+    border: none;
+    border-bottom: 1px solid $form-border;
+    // background: transparent;
+    background: $putih;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid $form-focus;
+    }
+
+    &::placeholder {
+      color: #aaa;
+    }
+}
+

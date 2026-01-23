@@ -32,6 +32,26 @@
   text-align: justify;
 }
 
+.dx-form-control textarea {
+  width: 100%;
+  font-size: 0.95em;
+  padding: 0.4em 0.8em;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+  transition: border-color 0.2s ease;
+}
+.dx-form-control textarea:focus {
+  outline: none;
+  border-bottom: 1px solid #0652dd;
+}
+.dx-form-control textarea::-moz-placeholder {
+  color: #aaa;
+}
+.dx-form-control textarea::placeholder {
+  color: #aaa;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -1304,12 +1324,10 @@ span strong {
   transform: rotate(45deg);
 }
 .dx-checkbox input:focus-visible ~ label::before {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(6, 82, 221, 0.35);
+  box-shadow: 0 0 0 3px rgba(6, 82, 221, 0.3);
 }
 
-input[type=checkbox],
-input[type=radio] {
+input[type=checkbox] {
   box-sizing: border-box;
   padding: 0;
 }
@@ -1466,7 +1484,6 @@ button:not(:disabled) {
 }
 
 .dx-badge {
-  display: inline-block;
   padding: 0.4em 1.025em;
   font-size: 0.625rem;
   font-weight: 600;
@@ -1522,6 +1539,10 @@ button:not(:disabled) {
   color: #535353;
 }
 
+.dx-form-group {
+  margin-bottom: 1em;
+}
+
 .dx-form-control {
   max-width: 400px;
   margin: 0 auto;
@@ -1529,11 +1550,47 @@ button:not(:disabled) {
   flex-direction: column;
   gap: 1.5rem;
 }
+.dx-form-control.dx-form-group {
+  margin-bottom: 1em;
+}
 .dx-form-control label {
   font-weight: 500;
   margin-bottom: 0.4em;
   display: block;
   color: #535353;
+}
+.dx-form-control .dx-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.dx-form-control .dx-input-wrapper input {
+  width: 100%;
+  font-size: 0.95em;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+  transition: border-color 0.2s ease;
+}
+.dx-form-control .dx-input-wrapper input:focus {
+  outline: none;
+  border-bottom: 1px solid #0652dd;
+}
+.dx-form-control .dx-input-wrapper input::-moz-placeholder {
+  color: #aaa;
+}
+.dx-form-control .dx-input-wrapper input::placeholder {
+  color: #aaa;
+}
+.dx-form-control .dx-input-wrapper .dx-icon {
+  position: absolute;
+  right: 0.75rem;
+  color: #888;
+  pointer-events: none;
+}
+.dx-form-control .dx-input-wrapper .dx-icon i {
+  font-size: 1.25rem;
 }
 .dx-form-control input {
   width: 100%;
@@ -1553,6 +1610,69 @@ button:not(:disabled) {
 }
 .dx-form-control input::placeholder {
   color: #aaa;
+}
+.dx-form-control input.dx-input-invalid:focus {
+  outline: none;
+  border-bottom: 1px solid #e03244;
+}
+.dx-form-control input.dx-input-disable {
+  outline: none;
+  border-bottom: 1px solid #0652dd;
+}
+.dx-form-control input::file-selector-button {
+  padding: 0.3em 0.8em;
+  margin-right: 0.6em;
+  border: none;
+  border-radius: 4px;
+  background-color: #0652dd;
+  color: #fff;
+  font-size: 0.8075em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.dx-form-control input::file-selector-button:hover {
+  background-color: rgb(5.3259911894, 72.7885462555, 196.1740088106);
+}
+.dx-form-control input[type=file] {
+  outline: none;
+  border-bottom: none;
+}
+.dx-form-control textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.dx-form-control textarea:focus-visible {
+  outline: none;
+}
+.dx-form-control textarea:focus {
+  outline: none;
+  border-bottom: 1px solid #0652dd;
+}
+.dx-form-control textarea::-moz-placeholder {
+  color: #aaa;
+}
+.dx-form-control textarea::placeholder {
+  color: #aaa;
+}
+.dx-form-control select {
+  width: 100%;
+  font-size: 0.95em;
+  padding: 0.4em 0.8em;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+  transition: border-color 0.2s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("/vendor/bootstrap-icons/chevron-down.svg");
+  background-repeat: no-repeat;
+  background-position: right 0.8em center;
+  background-size: 1em;
+}
+.dx-form-control select:focus {
+  outline: none;
+  border-bottom: 1px solid #0652dd;
 }
 
 body.modal-open {
@@ -1617,27 +1737,24 @@ body.modal-open {
   cursor: pointer;
 }
 
-.dx-modal-input.form-group {
-  margin-bottom: 1em;
-}
-.dx-modal-input.form-group label {
+.dx-modal-input label {
   color: #a0a4a8;
   font-size: 12px;
   margin-bottom: 0.5em;
 }
-.dx-modal-input.form-group input,
-.dx-modal-input.form-group textarea {
+.dx-modal-input input,
+.dx-modal-input textarea {
   font-size: 12px;
   border: none;
   border-radius: 0;
   outline: none;
   box-shadow: none;
 }
-.dx-modal-input.form-group input:focus,
-.dx-modal-input.form-group textarea:focus {
+.dx-modal-input input:focus,
+.dx-modal-input textarea:focus {
   border-bottom: 1px solid #0652dd;
 }
-.dx-modal-input.form-group input {
+.dx-modal-input input {
   height: 32px;
 }
 
@@ -1645,6 +1762,65 @@ body.modal-open {
   display: flex;
   justify-content: space-around;
   margin: 20px 10px 10px;
+}
+
+.dx-radio {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 1.5em;
+}
+.dx-radio input[type=radio] {
+  position: absolute;
+  top: 0.25rem;
+  opacity: 0;
+  z-index: 1;
+}
+.dx-radio label {
+  position: relative;
+  cursor: pointer;
+  padding-left: 1.8em;
+}
+.dx-radio label::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 0.5em;
+  transition: border-color 0.2s ease;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.dx-radio input[type=radio]:checked ~ label::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #0652dd;
+  border-radius: 50%;
+  top: 50%;
+  left: 3px;
+  transform: translateY(-50%);
+}
+.dx-radio input[type=radio]:checked ~ label::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #0652dd;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 0.5em;
+  transition: border-color 0.2s ease;
+}
+.dx-radio input[type=radio]:focus-visible ~ label::before {
+  box-shadow: 0 0 0 3px rgba(6, 82, 221, 0.3);
 }
 
 @media (max-width: 639px) {

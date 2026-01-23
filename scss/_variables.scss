@@ -209,6 +209,8 @@ $modal-bg: $warna-bg;
 
 //* Breakpoint map
 $breakpoints: (
+  xs: 576px,
+  // Ukuran paling kecil
   sm: 640px,
   // Mobile kecil
   md: 768px,
@@ -234,3 +236,15 @@ $dx-icon-colors: (
   "biru":  $warna-clear,
 );
 
+//* Radios
+$radio-size : 14px;
+$radio-size-dot: 8px;
+$radio-border-color: $abu-abu-terang;
+$radio-color: $biru;
+$radio-form-focus: $biru;
+
+//* Table
+$table-border-color: $kuning;
+$table-title-color: $biru;
+$table-background: $putih;
+$table-box-shadow: rgba(0, 0, 0, 0.05) 2px 2px 12px!important;
