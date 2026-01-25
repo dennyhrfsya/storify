@@ -7,9 +7,6 @@ Notice Success : #edf7f3
 Notice Warning : #fcf5e3
 Notice Error : #fbe9eb
 
-Accordion
-- accordion item
-- accordion header
-- accordion button
-- accordion body
-- accordion collapse
+Update :
+Footer
+Pagination
