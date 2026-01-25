@@ -24,6 +24,9 @@
 
     <!-- Link Bootstrap Icon -->
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Link flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 
 <body>
@@ -66,6 +69,7 @@
 
             <section class="dx-section">
                 <!-- Header -->
+                <!-- <header id="mainHeader" class="d-flex p-3 align-items-center justify-content-between header-custom"> -->
                 <header class="d-flex p-3 align-items-center justify-content-between">
                     <img src="images/logo-storify.png" alt="Logo Storify" class="md:dx-logo-img dx-img-ht">
                     <div class="d-flex">
@@ -82,9 +86,11 @@
                                     <td>
                                         <div class="d-flex align-items-center float-start">
                                             <a type="button" id="dropdownMenu1" data-bs-toggle="dropdown"
-                                                aria-expanded="false">
-                                                <img src="images/bell.svg" alt="avatar" class="dx-h-8 dx-ml-4"></a>
-                                            <span class="dx-text-right dx-font-bold dx-truncate">0</span>
+                                                aria-expanded="false" class="dx-notif-wrapper">
+                                                <img src="./images/bell.svg" alt="avatar" class="dx-h-8 dx-ml-4">
+                                                <!-- <span class="dx-text-right dx-font-bold dx-truncate">0</span> -->
+                                                <span id="notifBadge" class="dx-badge-pulse">0</span>
+                                            </a>
                                             <div class="dropdown-menu dx-edit-dropdown" aria-labelledby="dropdownMenu1">
                                                 <div class="dx-px-4 dx-pt-3">
                                                     <span class="d-block dx-font-medium dx-truncate">Pesan
@@ -103,7 +109,7 @@
 
                                             <a type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
                                                 aria-expanded="false">
-                                                <img src="images/avatar-placeholder.png" alt="avatar"
+                                                <img src="./images/avatar-placeholder.png" alt="avatar"
                                                     class="dx-h-8 dx-ml-4"></a>
                                             <span class="dx-text-right dx-font-bold dx-truncate">&nbsp; DENNY</span>
 
@@ -284,6 +290,10 @@
                                             <input type="username" id="username" placeholder="username" />
                                         </div>
                                         <div class="dx-form-group">
+                                            <label for="number">Nomor Handphone</label>
+                                            <input type="number" id="number" placeholder="Number" />
+                                        </div>
+                                        <div class="dx-form-group">
                                             <label for="email">Email</label>
                                             <input type="email" class="dx-input-invalid" id="email"
                                                 placeholder="alamat@email.com" />
@@ -352,11 +362,29 @@
                                             </div>
                                         </div>
                                         <div class="dx-form-group">
+                                            <label for="toggle">Toggle</label>
+                                            <label class="dx-toggle">
+                                                <input type="checkbox" id="toggle" name="toggle" />
+                                                <span class="dx-slider"></span>
+                                            </label>
+                                        </div>
+                                        <div class="dx-form-group">
                                             <label for="input-group">Input Group</label>
                                             <div class="dx-input-wrapper">
                                                 <input type="text" id="input-group" placeholder="Input Group" />
                                                 <span class="dx-icon">
-                                                    <i class="bi bi-person"></i>
+                                                    <img src="./images/icon-personal-input.svg" alt="avatar"
+                                                        class="dx-h-6 dx-ml-4"></a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="dx-form-group">
+                                            <label for="tanggal">Tanggal</label>
+                                            <div class="dx-input-wrapper">
+                                                <input type="date" id="tanggal" placeholder="Pilih tanggal" />
+                                                <span class="dx-icon">
+                                                    <img src="./images/icon-calendar.svg" alt="avatar"
+                                                        class="dx-h-6 dx-ml-4"></a>
                                                 </span>
                                             </div>
                                         </div>
@@ -368,20 +396,104 @@
                         <!-- Bagian Table -->
                         <div class="row mx-auto dx-mb-12 my-3">
                             <div class="col">
-                                <h3 class="dx-table-title dx-with-border dx-table-text-left">Pesan Masuk</h3>
+                                <h3 class="dx-table-title dx-with-border dx-table-text-left">Tables</h3>
                                 <p>Halaman data tabel untuk informasi dari pendapat <strong>user</strong>.</p>
 
-
-                                <div class="dx-inner-table">
+                                <div class="dx-table">
                                     <div class="table-responsive">
+                                        <table class="table dx-batch-table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" class="align-middle">No</th>
+                                                    <th scope="col" class="align-middle dx-sortable">Nama</th>
+                                                    <th scope="col" class="align-middle dx-sortable">Email</th>
+                                                    <th scope="col" class="align-middle">No Hp</th>
+                                                    <th scope="col" class="align-middle">Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Tarjo</td>
+                                                    <td>tarjooo@gmail.com</td>
+                                                    <td>021567262</td>
+                                                    <td><a href="#" class="dx-badge dx-badge-primary">Ubah</a> <a
+                                                            href="#" class="dx-badge dx-badge-danger">Hapus</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Yanto Basnas</td>
+                                                    <td>yanto@gmail.com</td>
+                                                    <td>08121221562</td>
+                                                    <td><a href="#" class="dx-badge dx-badge-primary">Ubah</a> <a
+                                                            href="#" class="dx-badge dx-badge-danger">Hapus</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Rudi Salim Ciku</td>
+                                                    <td>rudiadem@gmail.com</td>
+                                                    <td>087243453133</td>
+                                                    <td><a href="#" class="dx-badge dx-badge-primary">Ubah</a> <a
+                                                            href="#" class="dx-badge dx-badge-danger">Hapus</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>Acong</td>
+                                                    <td>acongtuman@gmail.com</td>
+                                                    <td>021879222</td>
+                                                    <td><a href="#" class="dx-badge dx-badge-primary">Ubah</a> <a
+                                                            href="#" class="dx-badge dx-badge-danger">Hapus</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>Boim Limo</td>
+                                                    <td>boimlimosin@gmail.com</td>
+                                                    <td>085621212399</td>
+                                                    <td><a href="#" class="dx-badge dx-badge-primary">Ubah</a> <a
+                                                            href="#" class="dx-badge dx-badge-danger">Hapus</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
 
+                                <div class="dx-table">
+                                    <div class="table-responsive">
+                                        <table class="table dx-batch-table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" class="align-middle">No</th>
+                                                    <th scope="col" class="align-middle dx-sortable">Nama</th>
+                                                    <th scope="col" class="align-middle dx-sortable">Email</th>
+                                                    <th scope="col" class="align-middle">No Hp</th>
+                                                    <th scope="col" class="align-middle">Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="5">
+                                                        <div class="dx-empty-batch text-center">
+                                                            <div class="dx-empty-batch-image">
+                                                                <img src="./images/speech-bubble.png" alt="empty-batch"
+                                                                    class="img-fluid d-inline">
+                                                            </div>
+                                                            <h5 class="dx-empty-batch-title">Data tidak ditemukan
+                                                            </h5>
+                                                            <p class="dx-empty-batch-content">Untuk keterangan lebih
+                                                                lanjut, silahkan baca <a href="#" target="_blank">Link
+                                                                    ini.</a></p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Bagian Navigasi Link -->
-                        <div class="row dx-mb-12">
+                        <div class="row dx-mb-30">
                             <div class="col-12 col-md-6 mx-auto">
                                 <ul class="dx-title-card d-flex nav dx-mb-6 justify-content-around">
                                     <li class="nav-item sm:dx-text-lg">
@@ -444,6 +556,9 @@
                             </div>
                         </div>
 
+                        <button id="dxBackToTop" class="dx-btn-to-top" aria-label="Back to top">
+                            <img src="./images/left-arrow.svg" alt="Back to top">
+                        </button>
 
                     </div>
                 </div>
@@ -542,27 +657,23 @@
         crossorigin="anonymous"></script>
     <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js"
         data-cf-settings="65818a07c709d4a0ee7047e0-|49" defer=""></script>
+
+    <!-- Javascript Customs -->
     <script type="text/javascript" src="./js/admin.js">
     </script>
     <script type="text/javascript" src="./js/password-hidden.js">
     </script>
-    <script>
-        document.querySelectorAll('.counter').forEach(el => {
-            const target = +el.getAttribute('data-target');
-            const increment = target / 100;
 
-            const updateCount = () => {
-                const current = +el.innerText.replace(/,/g, '');
-                if (current < target) {
-                    el.innerText = Math.ceil(current + increment).toLocaleString();
-                    setTimeout(updateCount, 20);
-                } else {
-                    el.innerText = target.toLocaleString();
-                }
-            };
-            updateCount();
+    <!-- flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        flatpickr("#tanggal", {
+            disableMobile: "true", // Memaksa library Flatpickr muncul di mobile, bukan kalender bawaan HP
+            dateFormat: "d-m-Y",
+            // Kamu juga bisa memicu kalender saat icon diklik jika perlu
         });
     </script>
+
 </body>
 
 </html>

@@ -2,6 +2,54 @@
 @use "mixins" as *;
 @use "inheritance" as *;
 
+//* Header
+// /* Custom class untuk header */
+// .header-custom {
+//     position: sticky;
+//     top: 0;
+//     z-index: 1020;
+//     transition: box-shadow 0.3s ease-in-out; /* Efek transisi halus */
+//     background-color: $warna-bg;
+// }
+
+// /* Class yang akan ditambah lewat JS */
+// .shadow-scrolled {
+//     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+// }
+
+//* Notification Badge
+/* Kontainer utama */
+.dx-notif-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Base style untuk badge */
+.dx-badge-pulse {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background-color: $merah;
+    color: $putih;
+    font-size: 10px;
+    font-weight: bold;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: none; /* Default sembunyi jika 0 */
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $putih;
+    // animation: pulse-animation 1.5s infinite;
+}
+
+/* Keyframes untuk efek denyut */
+// @keyframes pulse-animation {
+//     0% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7); }
+//     70% { box-shadow: 0 0 0 10px rgba(255, 59, 48, 0); }
+//     100% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); }
+// }
+
 //* Section
 .dx-section {
   margin-left: 180px;
@@ -169,7 +217,6 @@
 }
 
 //* Items Page
-
 // Avatar
 img.dx-avatar {
   height: 100px;
@@ -397,7 +444,7 @@ li.dx-title-card {
   }
 }
 
-//* Table
+//* Table - Nesting
 .dx-table-title {
   position: relative;
   font-size: 24px;
@@ -412,20 +459,181 @@ li.dx-title-card {
       left: 0;
       width: 100px;
       min-height: 0px;
-      border: 1px solid $table-border-color;
+      border: 1px solid $table-title-border-color;
     }
     &.dx-with-border.dx-table-text-left:before {
       left: auto;
     }
 }
 
-.dx-inner-table {
+.dx-table {
+  width: 100%;
   margin: 2em 0px;
   & > .table-responsive {
     background-color: $table-background;
     border-radius: 4px;
-    padding: 0px 15px;
+    padding: 15px;
   }
+}
+
+.table-responsive {
+  // max-width: fit-content;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    // box-shadow: $box-shadow;
+}
+
+.dx-batch-table {
+  width: 100% !important;
+  border-collapse: collapse;
+  table-layout: auto;
+  display: table !important;
+  margin-bottom: 20px;
+}
+
+.dx-review-table,
+.dx-batch-table {
+  th{
+    color: $table-color;
+    padding: 0.75em;
+    border-top: 0;
+    border-bottom: 1px solid $table-border-bottom;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  th.dx-sortable {
+    cursor: pointer;
+    position: relative;
+    padding-right: 30px !important; // Beri ruang lebih untuk icon
+    transition: all 0.2s ease;
+
+    // Container Icon (Gunakan pseudo-element sebagai pembungkus)
+    &::after {
+        content: '\2191 \2193'; // Simbol panah atas-bawah
+        position: absolute;
+        right: 8px;
+        font-size: 0.9em;
+        top: 50%;
+        transform: translateY(-50%);
+        letter-spacing: -2px;
+        // opacity: 0.2; 
+        display: flex;
+        white-space: nowrap;
+    }
+    &:hover {
+      color: $abu-abu;
+    }
+    // State Ascending
+    &.dx-sort-asc {
+        color: $abu-abu;
+        &::after {
+            content: '\2191'; // Panah atas
+            opacity: 1;
+            letter-spacing: 0;
+        }
+    }
+    // State Descending
+    &.dx-sort-desc {
+        color: $abu-abu;
+        &::after {
+            content: '\2193'; // Panah bawah
+            opacity: 1;
+            letter-spacing: 0;
+        }
+    }
+  }
+  td {
+    border-top: 0;
+    font-size: 14px;
+    line-height: 20px;
+    border-bottom-width: 0px !important;
+  }
+}
+
+.dx-empty-batch {
+  margin: 45px 0px 60px;
+}
+
+.dx-empty-batch-image {
+  margin: 15px 0px 45px;
+}
+
+.dx-empty-batch-title {
+  color: $table-empty-batch-color;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.dx-empty-batch-content {
+  color: $abu-abu-2;
+  font-weight: normal;
+}
+
+//* Tombol Back to Top - Nesting
+.dx-btn-to-top {
+    position: fixed;
+    right: 25px;
+    bottom: 30px;
+    width: 40px; 
+    height: 40px;
+    background-color: $backtotop-color;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+    cursor: pointer;
+    
+    // Keadaan awal (sembunyi)
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+        background-color: $backtotop-color-hover;
+        // transform: translateY(-5px);
+    }
+
+    // Class yang akan dipicu oleh JavaScript
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    // Animasi lompat halus (Low Lift)
+    &:hover {
+        // transform: translateY(-4px); // Jarak lompat diperpendek agar tidak terlalu tinggi
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); // Shadow mengikuti ketinggian baru
+        
+        img {
+            transform: rotate(90deg) scale(1.05); // Icon membesar sedikit saja
+        }
+    }
+
+    // Feedback saat ditekan
+    // &:active {
+    //     transform: translateY(-1px);
+    //     transition: transform 0.1s ease;
+    // }
+
+    // @media (max-width: 767.98px) {
+    //     width: 38px; 
+    //     height: 38px;
+    //     bottom: 100px; // Jarak aman agar tidak mepet nav mobile
+    //     right: 25px;
+    // }
+
+    img {
+        width: 16px;
+        height: auto;
+        transform: rotate(90deg);
+        filter: brightness(0) invert(1);
+        transition: transform 0.3s ease;
+    }
 }
 
 @include respond-to(md, max) {
@@ -434,6 +642,12 @@ li.dx-title-card {
       border-radius: 4px;
       box-shadow: $table-box-shadow;
       padding: 15px;
+  }
+  .dx-btn-to-top {
+      width: 38px; 
+      height: 38px;
+      bottom: 100px; // Jarak aman agar tidak mepet nav mobile
+      right: 25px;
   }
 }
 

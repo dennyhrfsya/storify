@@ -7,6 +7,7 @@ $base-font-size: 14px;
 //* Variable Warna
 $putih: #fff;
 $abu-abu-terang: #ccc;
+$abu-abu-2: #a0a4a8;
 $abu-abu: #535353;
 $biru-muda: #266ef4;
 $biru: #0652dd;
@@ -17,17 +18,18 @@ $hijau: #32ba7c;
 $hijau-tua: #31ba7c;
 $kuning-muda: #f1d255;
 $kuning: #f1c40f;
+$kuning-3: #efeeed;
 $abu-abu-text: #a0a4a8;
 $merah-text: #e02424;
 $hijau-text: #32ba7c;
-$warna-success: #edf7f3;
-$warna-warning: #fcf5e3;
-$warna-error: #fbe9eb;
 $warna-clear: #bbd3ff;
 $warna-bg: #fafafa;
 $warna-root: #d2d6dc;
 $warna-bg-putih: #fff;
 $warna-bg-abu-abu: #a0a4a8;
+$warna-success: #edf7f3;
+$warna-warning: #fcf5e3;
+$warna-error: #fbe9eb;
 
 // Map Warna
 $color: (
@@ -244,7 +246,15 @@ $radio-color: $biru;
 $radio-form-focus: $biru;
 
 //* Table
-$table-border-color: $kuning;
+$table-title-border-color: $kuning;
 $table-title-color: $biru;
 $table-background: $putih;
 $table-box-shadow: rgba(0, 0, 0, 0.05) 2px 2px 12px!important;
+$table-color : $abu-abu-2;
+$table-col-active: $abu-abu;
+$table-border-bottom: $kuning-3;
+$table-empty-batch-color: $abu-abu;
+
+//* Back to Top
+$backtotop-color: $biru;
+$backtotop-color-hover: $biru-muda;
