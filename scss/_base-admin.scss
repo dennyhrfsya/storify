@@ -18,13 +18,13 @@
 // }
 
 //* Notification Badge
-/* Kontainer utama */
+// Kontainer utama
 .dx-notif-wrapper {
     position: relative;
     display: inline-block;
 }
 
-/* Base style untuk badge */
+// Base style untuk badge
 .dx-badge-pulse {
     position: absolute;
     top: -2px;
@@ -36,14 +36,14 @@
     min-width: 18px;
     height: 18px;
     border-radius: 50%;
-    display: none; /* Default sembunyi jika 0 */
+    display: none; // Default sembunyi jika 0
     align-items: center;
     justify-content: center;
     border: 2px solid $putih;
     // animation: pulse-animation 1.5s infinite;
 }
 
-/* Keyframes untuk efek denyut */
+// Keyframes untuk efek denyut
 // @keyframes pulse-animation {
 //     0% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7); }
 //     70% { box-shadow: 0 0 0 10px rgba(255, 59, 48, 0); }
@@ -145,7 +145,7 @@
   --padding-right: calc(10rem + 3rem);
 }
 
-// Logo image
+//* Logo image
 .dx-img-ht {
   width: 120px;
 }
@@ -571,6 +571,107 @@ li.dx-title-card {
   font-weight: normal;
 }
 
+//* Pagination - Nesting
+// Mematikan efek saat kursor di atasnya (Hover) dan saat diklik (Focus/Active)
+.dx-pagination .page-link:hover, 
+.dx-pagination .page-link:focus, 
+.dx-pagination .page-link:active {
+    box-shadow: none !important;    // Menghilangkan garis biru Bootstrap saat diklik
+}
+
+.dx-pagination-wrapper {
+    border-top: 1px solid $pagination-border;
+    padding-top: 30px;
+
+    .dx-pagination {
+        gap: 10px;
+
+        .page-item {
+            .page-link {
+                width: 28px;
+                height: 28px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 0.25rem !important;
+                font-size: 0.8rem;
+                font-weight: 500;
+                color: $pagination-text;
+                border: 1px solid $pagination-border;
+                background-color: #fff;
+                text-decoration: none;
+                transition: none;
+
+                &:hover {
+                    border-color: $pagination-border;
+                    color: $pagination-hover-text;
+                    background-color: $pagination-hover-color;
+                }
+
+                img {
+                    vertical-align: middle;
+                }
+            }
+
+            &.active .page-link {
+                background-color: $pagination-color;
+                border-color: $pagination-color;
+                color: #fff;
+
+                &:hover {
+                    border-color: $pagination-border;
+                    color: $pagination-hover-text;
+                    background-color: $pagination-hover-color;
+                }
+            }
+
+            &.disabled {
+                opacity: 0.4;
+                .page-link {
+                    background-color: #f9f9f9;
+                    cursor: default;
+                }
+            }
+        }
+    }
+
+    // Responsiveness
+    // @media (max-width: 768px) {
+    //     padding-top: 20px;
+
+    //     .dx-pagination {
+    //         gap: 6px;
+
+    //         .page-item {
+    //             .page-link {
+    //                 width: 28px;
+    //                 height: 28px;
+    //                 font-size: 0.7rem;
+    //             }
+    //         }
+    //     }
+    // }
+
+    // @media (max-width: 480px) {
+    //     padding-top: 15px;
+
+    //     .dx-pagination {
+    //         flex-wrap: wrap; // biar pagination bisa turun ke bawah
+    //         justify-content: center;
+    //         gap: 4px;
+
+    //         .page-item {
+    //             .page-link {
+    //                 width: 24px;
+    //                 height: 24px;
+    //                 font-size: 0.65rem;
+    //             }
+    //         }
+    //     }
+    // }
+}
+
+
 //* Tombol Back to Top - Nesting
 .dx-btn-to-top {
     position: fixed;
@@ -649,6 +750,20 @@ li.dx-title-card {
       bottom: 100px; // Jarak aman agar tidak mepet nav mobile
       right: 25px;
   }
+  .dx-pagination-wrapper {
+    .dx-pagination {
+        padding-top: 20px;
+        gap: 6px;
+
+          .page-item {
+              .page-link {
+                  // width: 28px;
+                  // height: 28px;
+                  font-size: 0.7rem;
+              }
+          }
+      }
+    }
 }
 
 
@@ -697,6 +812,23 @@ li.dx-title-card {
     font-size: 20px!important;
     line-height: 20px!important;
   }
+  
+  .dx-pagination-wrapper{
+      .dx-pagination {
+        padding-top: 15px;
+        flex-wrap: wrap; // biar pagination bisa turun ke bawah
+        justify-content: center;
+        gap: 4px;
+
+        .page-item {
+            .page-link {
+                width: 24px;
+                height: 24px;
+                font-size: 0.65rem;
+            }
+        }
+      }
+    }
 }
 
 @include respond-to(xs, min) {

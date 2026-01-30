@@ -1,11 +1,9 @@
 @charset "UTF-8";
-/* Kontainer utama */
 .dx-notif-wrapper {
   position: relative;
   display: inline-block;
 }
 
-/* Base style untuk badge */
 .dx-badge-pulse {
   position: absolute;
   top: -2px;
@@ -17,13 +15,12 @@
   min-width: 18px;
   height: 18px;
   border-radius: 50%;
-  display: none; /* Default sembunyi jika 0 */
+  display: none;
   align-items: center;
   justify-content: center;
   border: 2px solid #fff;
 }
 
-/* Keyframes untuk efek denyut */
 .dx-section {
   margin-left: 180px;
   transition: margin-left 0.5s;
@@ -510,6 +507,60 @@ li.dx-title-card:first-child {
   font-weight: normal;
 }
 
+.dx-pagination .page-link:hover,
+.dx-pagination .page-link:focus,
+.dx-pagination .page-link:active {
+  box-shadow: none !important;
+}
+
+.dx-pagination-wrapper {
+  border-top: 1px solid #efeeed;
+  padding-top: 30px;
+}
+.dx-pagination-wrapper .dx-pagination {
+  gap: 10px;
+}
+.dx-pagination-wrapper .dx-pagination .page-item .page-link {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem !important;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #535353;
+  border: 1px solid #efeeed;
+  background-color: #fff;
+  text-decoration: none;
+  transition: none;
+}
+.dx-pagination-wrapper .dx-pagination .page-item .page-link:hover {
+  border-color: #efeeed;
+  color: #fff;
+  background-color: #0652dd;
+}
+.dx-pagination-wrapper .dx-pagination .page-item .page-link img {
+  vertical-align: middle;
+}
+.dx-pagination-wrapper .dx-pagination .page-item.active .page-link {
+  background-color: #0652dd;
+  border-color: #0652dd;
+  color: #fff;
+}
+.dx-pagination-wrapper .dx-pagination .page-item.active .page-link:hover {
+  border-color: #efeeed;
+  color: #fff;
+  background-color: #0652dd;
+}
+.dx-pagination-wrapper .dx-pagination .page-item.disabled {
+  opacity: 0.4;
+}
+.dx-pagination-wrapper .dx-pagination .page-item.disabled .page-link {
+  background-color: #f9f9f9;
+  cursor: default;
+}
+
 .dx-btn-to-top {
   position: fixed;
   right: 25px;
@@ -563,6 +614,13 @@ li.dx-title-card:first-child {
     bottom: 100px;
     right: 25px;
   }
+  .dx-pagination-wrapper .dx-pagination {
+    padding-top: 20px;
+    gap: 6px;
+  }
+  .dx-pagination-wrapper .dx-pagination .page-item .page-link {
+    font-size: 0.7rem;
+  }
 }
 @media (min-width: 768px) {
   .dx-sidebar {
@@ -599,6 +657,17 @@ li.dx-title-card:first-child {
   .dx-table-title {
     font-size: 20px !important;
     line-height: 20px !important;
+  }
+  .dx-pagination-wrapper .dx-pagination {
+    padding-top: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+  }
+  .dx-pagination-wrapper .dx-pagination .page-item .page-link {
+    width: 24px;
+    height: 24px;
+    font-size: 0.65rem;
   }
 }
 @media (min-width: 576px) {

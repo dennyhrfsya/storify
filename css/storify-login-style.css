@@ -65,7 +65,6 @@ input[type=text] {
 }
 @media (min-width: 1024px) {
   .dx-login-background {
-    background-size: contain !important;
     background-position: center !important;
   }
 }/*# sourceMappingURL=storify-login-style.css.map */

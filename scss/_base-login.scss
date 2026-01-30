@@ -65,7 +65,7 @@ input[type="text"] {
 
 @include respond-to(lg, min) {
   .dx-login-background {
-    background-size: contain !important;
+    // background-size: contain !important;
     background-position: center !important;
   }
 }

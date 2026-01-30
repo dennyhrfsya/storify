@@ -923,6 +923,11 @@ body.modal-open {
   }
 }
 
+//* 404
+.dx-vh {
+  height: 100vh;
+}
+
 //* Breakpoint ukuran HP dan Tablet
 @include respond-to(sm, max) {
   :root {

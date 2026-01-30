@@ -4,18 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Denny Herfansya">
+    <meta name="keywords" content="DexD">
     <meta name="description" content="For Storify">
     <title>Items</title>
 
     <!-- Bootstrap Core CSS v5.3 -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
-    <!-- Link CSS from normalize.css v8.0.1 -->
-    <!-- <link rel="stylesheet" type="text/css" href="css/main.chunk.css"> -->
-
     <!-- Link CSS -->
-    <!-- <link rel="stylesheet" type="text/css" href="css/mystyle.admin.css"> -->
     <link rel="stylesheet" type="text/css" href="css/storify-base-style.css">
     <link rel="stylesheet" type="text/css" href="css/storify-admin-style.css">
 
@@ -40,8 +36,8 @@
                     <img src="images/left-arrow-dx-white.svg">
                     <span class="dx-block dx-pl-2">Tutup</span>
                 </a>
-                <ul class="tw-nav">
-                    <li class="tw-nav-item tw-nav-open">
+                <ul>
+                    <li>
                         <a href="admin.html" class="dx-nav-link" aria-current="page">
                             <span class="dx-nav-icon bi-house-door"></span><span
                                 id="textSidebarHome">Dashboard</span></a>
@@ -69,7 +65,6 @@
 
             <section class="dx-section">
                 <!-- Header -->
-                <!-- <header id="mainHeader" class="d-flex p-3 align-items-center justify-content-between header-custom"> -->
                 <header class="d-flex p-3 align-items-center justify-content-between">
                     <img src="images/logo-storify.png" alt="Logo Storify" class="md:dx-logo-img dx-img-ht">
                     <div class="d-flex">
@@ -88,7 +83,6 @@
                                             <a type="button" id="dropdownMenu1" data-bs-toggle="dropdown"
                                                 aria-expanded="false" class="dx-notif-wrapper">
                                                 <img src="./images/bell.svg" alt="avatar" class="dx-h-8 dx-ml-4">
-                                                <!-- <span class="dx-text-right dx-font-bold dx-truncate">0</span> -->
                                                 <span id="notifBadge" class="dx-badge-pulse">0</span>
                                             </a>
                                             <div class="dropdown-menu dx-edit-dropdown" aria-labelledby="dropdownMenu1">
@@ -161,7 +155,6 @@
 
                         <!-- Bagian info Box -->
                         <div class="dx-grid dx-mb-12">
-                            <!-- <div class="col dx-bg-putih dx-bl-hijau"> -->
                             <div class="dx-box-content dx-bg-putih card-body p-3">
                                 <div class="dx-box-title">
                                     <h5 class="dx-text-sm dx-font-bold">Total</h5>
@@ -169,10 +162,6 @@
                                     </p>
                                 </div>
                                 <div class="dx-box-section">
-                                    <!-- <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#31ba7c"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M12 20V10M18 20V4M6 20v-4"></path>
-                                        </svg> -->
                                     <img src="./images/icon-user.png" alt="" class="dx-img-box">
                                 </div>
                             </div>
@@ -362,6 +351,22 @@
                                             </div>
                                         </div>
                                         <div class="dx-form-group">
+                                            <div class="d-flex flex-row justify-content-between">
+                                                <div class="p-2">
+                                                    <label for="text">Page <strong>
+                                                            <a href="404.html" target="_blank">
+                                                                404</a></strong>
+                                                    </label>
+                                                </div>
+                                                <div class="p-2">
+                                                    <label for="text">Page <strong>
+                                                            <a href="403.html" target="_blank">
+                                                                403</a></strong>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="dx-form-group">
                                             <label for="toggle">Toggle</label>
                                             <label class="dx-toggle">
                                                 <input type="checkbox" id="toggle" name="toggle" />
@@ -454,6 +459,36 @@
                                                 </tr>
                                             </tbody>
                                         </table>
+
+                                        <div
+                                            class="dx-pagination-wrapper d-flex justify-content-between align-items-center mt-5 mb-4 px-2">
+                                            <div class="dx-pagination-info dx-text-abu-abu-gelap">
+                                                <small style="letter-spacing: 0.5px;">Menampilkan <strong>1-5</strong>
+                                                    dari <strong>25</strong> data</small>
+                                            </div>
+
+                                            <nav aria-label="Page navigation">
+                                                <ul class="pagination dx-pagination mb-0">
+                                                    <li class="page-item disabled">
+                                                        <a class="page-link" href="#">
+                                                            &lsaquo;
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="page-item active"><a class="page-link" href="#">1</a>
+                                                    </li>
+                                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="#">
+                                                            &rsaquo;
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+
                                     </div>
                                 </div>
 
@@ -493,7 +528,7 @@
                         </div>
 
                         <!-- Bagian Navigasi Link -->
-                        <div class="row dx-mb-30">
+                        <div class="row dx-mb-12">
                             <div class="col-12 col-md-6 mx-auto">
                                 <ul class="dx-title-card d-flex nav dx-mb-6 justify-content-around">
                                     <li class="nav-item sm:dx-text-lg">
@@ -556,6 +591,15 @@
                             </div>
                         </div>
 
+                        <!-- Bagian Footer -->
+                        <footer class="row mt-5 mb-0 py-3">
+                            <div class="col text-md-start dx-text-sm">
+                                <span>&copy; 2026 Create by <a href="#" class="dx-text-biru">DexD</a> x <a href="#"
+                                        class="dx-text-biru">Bootstrap</a></span>
+                            </div>
+                        </footer>
+
+                        <!-- Bagian Back to Top -->
                         <button id="dxBackToTop" class="dx-btn-to-top" aria-label="Back to top">
                             <img src="./images/left-arrow.svg" alt="Back to top">
                         </button>
@@ -668,9 +712,8 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         flatpickr("#tanggal", {
-            disableMobile: "true", // Memaksa library Flatpickr muncul di mobile, bukan kalender bawaan HP
+            disableMobile: "true",
             dateFormat: "d-m-Y",
-            // Kamu juga bisa memicu kalender saat icon diklik jika perlu
         });
     </script>
 

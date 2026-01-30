@@ -44,6 +44,7 @@ $color: (
 
 // Map warna teks
 $color-text: (
+  "abu-abu-gelap": $abu-abu,
   "abu-abu": $abu-abu-text,
   "abu-terang": $abu-abu-terang,
   "merah": $merah-text,
@@ -254,6 +255,11 @@ $table-color : $abu-abu-2;
 $table-col-active: $abu-abu;
 $table-border-bottom: $kuning-3;
 $table-empty-batch-color: $abu-abu;
+$pagination-color: $biru;
+$pagination-hover-color: $biru;
+$pagination-border: $kuning-3;
+$pagination-text: $abu-abu;
+$pagination-hover-text: $putih;
 
 //* Back to Top
 $backtotop-color: $biru;

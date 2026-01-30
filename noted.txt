@@ -3,10 +3,11 @@ Button hover : #266ef4 , rgb(38, 110, 244)
 Green : #32ba7c
 Yellow : #f1c40f
 Red : #e03244
+Gray : #535353
 Notice Success : #edf7f3
 Notice Warning : #fcf5e3
 Notice Error : #fbe9eb
 
-Update :
-Footer
-Pagination
+Next Dev :
+Buat dropdown untuk Navigasi sidebar
+Buat gambar untuk halaman lupa password
