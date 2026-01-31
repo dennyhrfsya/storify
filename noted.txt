@@ -9,5 +9,5 @@ Notice Warning : #fcf5e3
 Notice Error : #fbe9eb
 
 Next Dev :
-Buat dropdown untuk Navigasi sidebar
-Buat gambar untuk halaman lupa password
+Buat settimeout untuk validasi
+Fix footer agar di paling bawah

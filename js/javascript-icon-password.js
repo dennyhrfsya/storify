@@ -8,10 +8,10 @@ const togglePassword = function () {
   icon.onclick = function () {
     if (input.type === "password") {
       input.type = "text";
-      myImage.src = "images/eye-slash.svg";
+      myImage.src = "images/eye.svg";
     } else {
       input.type = "password";
-      myImage.src = "images/eye.svg";
+      myImage.src = "images/eye-slash.svg";
     }
   };
 };
