@@ -7,6 +7,7 @@
   <meta name="keywords" content="AxD">
   <meta name="description" content="For Storify">
   <title>Inventory</title>
+  <link rel="icon" href="images/favicon-16x16.png" type="image/x-icon">
 
   <!-- Bootstrap Core CSS v5.3 -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
@@ -96,7 +97,7 @@
                     <div class="d-flex align-items-center float-start">
                       <a type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false"
                         class="dx-notif-wrapper">
-                        <img src="./images/bell.svg" alt="avatar" class="dx-h-8 dx-ml-4">
+                        <img src="images/bell.svg" alt="avatar" class="dx-h-8 dx-ml-4">
                         <span id="notifBadge" class="dx-badge-pulse">0</span>
                       </a>
                       <div class="dropdown-menu dx-edit-dropdown" aria-labelledby="dropdownMenu1">
@@ -116,7 +117,7 @@
                     <div class="d-flex justify-content-end align-items-center float-end">
 
                       <a type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="./images/avatar-placeholder.png" alt="avatar" class="dx-h-8 dx-ml-4"></a>
+                        <img src="images/avatar-placeholder.png" alt="avatar" class="dx-h-8 dx-ml-4"></a>
                       <span class="dx-text-right dx-font-bold dx-truncate">&nbsp; DENNY</span>
 
                       <div class="dropdown-menu dx-edit-dropdown" aria-labelledby="dropdownMenu2">
@@ -249,83 +250,12 @@
 
         <!-- Bagian Back to Top -->
         <button id="dxBackToTop" class="dx-btn-to-top" aria-label="Back to top">
-          <img src="./images/left-arrow.svg" alt="Back to top">
+          <img src="images/left-arrow.svg" alt="Back to top">
         </button>
 
       </section>
-
     </div>
   </main>
-
-  <!-- Modal -->
-  <div class="modal fade" id="modalBox" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="dx-modal-exit" data-dismiss="modal" aria-label="Close">
-            <svg width="18" height="18" viewBox="0 0 52 52" fill="#2880CE" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M26 0C11.664 0 0 11.663 0 26C0 40.337 11.664 52 26 52C40.336 52 52 40.337 52 26C52 11.663 40.336 0 26 0ZM26 50C12.767 50 2 39.233 2 26C2 12.767 12.767 2 26 2C39.233 2 50 12.767 50 26C50 39.233 39.233 50 26 50Z">
-              </path>
-              <path
-                d="M35.707 16.293C35.316 15.902 34.684 15.902 34.293 16.293L26 24.586L17.707 16.293C17.316 15.902 16.684 15.902 16.293 16.293C15.902 16.684 15.902 17.316 16.293 17.707L24.586 26L16.293 34.293C15.902 34.684 15.902 35.316 16.293 35.707C16.488 35.902 16.744 36 17 36C17.256 36 17.512 35.902 17.707 35.707L26 27.414L34.293 35.707C34.488 35.902 34.744 36 35 36C35.256 36 35.512 35.902 35.707 35.707C36.098 35.316 36.098 34.684 35.707 34.293L27.414 26L35.707 17.707C36.098 17.316 36.098 16.684 35.707 16.293Z">
-              </path>
-            </svg>
-          </div>
-          <h5 class="dx-modal-title">Ubah Akun</h5>
-          <div class="dx-modal-body-input">
-            <div class="dx-modal-form-input mx-auto dx-password-inputs">
-              <div class="dx-modal-form-input dx-password-input">
-                <div class="dx-modal-input dx-form-group">
-                  <label class="dx-modal-input">Nama Lengkap</label>
-                  <input type="text" class="dx-modal-input form-control" value="">
-                </div>
-                <span class="dx-modal-form-input">
-                </span>
-              </div>
-              <div class="dx-modal-form-input dx-password-input">
-                <div class="dx-modal-input dx-form-group">
-                  <label class="dx-modal-input">No Telepon</label>
-                  <input type="number" class="dx-modal-input form-control" value="">
-                </div>
-                <span class="dx-modal-form-input">
-                </span>
-              </div>
-              <div class="dx-modal-form-input dx-password-input">
-                <div class="dx-modal-input dx-form-group">
-                  <label class="dx-modal-input">Password saat ini</label>
-                  <input type="password" id="password-current" class="dx-modal-input form-control" value="">
-                </div>
-                <span class="dx-modal-form-input eyes">
-                  <img src="./images/eye-slash.svg" id="icon-current-password" alt="" class="dx-modal-form-input">
-                </span>
-              </div>
-              <div class="dx-modal-form-input dx-password-input">
-                <div class="dx-modal-input dx-form-group">
-                  <label class="dx-modal-input">Password baru anda</label>
-                  <input type="password" id="password-new" class="dx-modal-input form-control" value="">
-                </div>
-                <span class="dx-modal-form-input eyes">
-                  <img src="./images/eye-slash.svg" id="icon-new-password" alt="" class="dx-modal-form-input">
-                </span>
-              </div>
-            </div>
-            <div class="dx-modal-form-input dx-mb-6">
-              <div class="dx-modal-form-input invalid-feedback d-block text-center">Nama harus diisi.
-              </div>
-              <div class="dx-modal-form-input invalid-feedback d-block text-center">Password harus diisi.
-              </div>
-            </div>
-          </div>
-          <div class="dx-modal-footer">
-            <button type="button" class="dx-btn dx-btn-secondary" data-dismiss="modal" aria-label="Close">Batal</button>
-            <button type="button" class="dx-btn dx-btn-primary">Simpan</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -343,7 +273,7 @@
     data-cf-settings="65818a07c709d4a0ee7047e0-|49" defer=""></script>
 
   <!-- Javascript Customs -->
-  <script type="text/javascript" src="./js/admin.js">
+  <script type="text/javascript" src="js/admin.js">
   </script>
 
   <!-- flatpickr -->
