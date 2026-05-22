@@ -31,9 +31,23 @@
                     });
 
                     // VALIDASI RESPONSE: Cek apakah server kirim error (404, 500, dll)
+                    // if (!response.ok) {
+                    //     const errorData = await response.json();
+                    //     throw new Error(errorData.message || `Server Error: ${response.status}`);
+                    // }
+
+                    // --- PERBAIKAN VALIDASI RESPONSE ---
                     if (!response.ok) {
-                        const errorData = await response.json();
-                        throw new Error(errorData.message || `Server Error: ${response.status}`);
+                        // Cek apakah response berupa JSON atau teks/HTML
+                        const contentType = response.headers.get("content-type");
+                        if (contentType && contentType.includes("application/json")) {
+                            const errorData = await response.json();
+                            throw new Error(errorData.message || `Server Error: ${response.status}`);
+                        } else {
+                            const errorText = await response.text(); // Ambil HTML mentah jika server error
+                            console.error("Detail Error HTML dari Server:", errorText);
+                            throw new Error(`Server status ${response.status}. Lihat Console untuk detail HTML.`);
+                        }
                     }
 
                     const data = await response.json();

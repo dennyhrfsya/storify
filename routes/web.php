@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
 
     //* Permissions
     Route::get('/users/hak-akses', [PermissionController::class, 'index'])->middleware('permission:User,all')->name('users.hak-akses');
-    Route::post('/users/hak-akses/update', [PermissionController::class, 'update'])->middleware('permission:User,ubah')->name('users.hak-akses.update');
+    Route::post('/users/hak-akses/update', [PermissionController::class, 'update'])->name('users.hak-akses.update');
 
     //* Aset
     Route::get('/aset', [AsetController::class, 'index'])->middleware('permission:Inventori,all')->name('aset.index');
