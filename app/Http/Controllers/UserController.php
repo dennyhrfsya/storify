@@ -20,7 +20,7 @@ class UserController extends Controller
             });
         }
 
-        $users = $query->paginate(10)->withQueryString();
+        $users = $query->paginate(5)->withQueryString();
 
         // =============== MODIFIKASI AJAX DI SINI ===============
         // Jika request datang dari AJAX (Fetch/Axios), kembalikan data JSON
