@@ -22,6 +22,20 @@ class UserController extends Controller
 
         $users = $query->paginate(10)->withQueryString();
 
+        // =============== MODIFIKASI AJAX DI SINI ===============
+        // Jika request datang dari AJAX (Fetch/Axios), kembalikan data JSON
+        if ($request->ajax() || $request->wantsJson()) {
+            return response()->json([
+                'users' => $users->items(), // Mengambil array data user saja
+                'links' => (string) $users->links('users.partials.pagination'), // Render HTML pagination
+                'meta' => [
+                    'from'  => $users->firstItem() ?? 0,
+                    'to'    => $users->lastItem() ?? 0,
+                    'total' => $users->total()
+                ]
+            ]);
+        }
+
         return view('users.index', compact('users'));
     }
 

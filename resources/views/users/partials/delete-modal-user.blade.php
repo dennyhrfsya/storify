@@ -1,5 +1,5 @@
-<div class="modal fade" id="deleteUserModal{{ $user->id }}" tabindex="-1" role="dialog"
-    aria-labelledby="deleteUserLabel{{ $user->id }}" aria-modal="true">
+<div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteUserLabel"
+    aria-modal="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
@@ -16,15 +16,15 @@
                 </div>
 
                 <div class="dx-modal-body-input">
-                    <h6 id="deleteUserLabel{{ $user->id }}" class="dx-modal-title">Konfirmasi</h6>
-                    <p class="text-center">Apakah Anda yakin ingin
-                        menghapus User <strong>{{ $user->name }}</strong> ?
+                    <h6 id="deleteUserLabel" class="dx-modal-title">Konfirmasi</h6>
+                    <p class="text-center dx-text-sm">Apakah Anda yakin ingin
+                        menghapus User <strong id="delete-modal-username"></strong>?
                     </p>
                 </div>
 
                 <div class="dx-modal-footer">
                     <button type="button" class="dx-btn dx-btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <form method="POST" action="{{ route('users.hapus', $user->id) }}">
+                    <form method="POST" id="delete-modal-form" action="">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="dx-btn dx-btn-primary">Hapus</button>
