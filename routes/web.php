@@ -42,7 +42,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/aset/{id}/ubah', [AsetController::class, 'ubah'])->middleware('permission:Inventori,ubah')->name('aset.ubah');
     Route::put('/aset/{id}', [AsetController::class, 'update'])->middleware('permission:Inventori,ubah')->name('aset.update');
     Route::delete('/aset/{id}', [AsetController::class, 'hapus'])->middleware('permission:Inventori,hapus')->name('aset.hapus');
-    Route::get('/aset/{id}/qr-pdf', [AsetController::class, 'downloadQRPDF'])->name('aset.qr.pdf');
 
     //* Peminjaman
     Route::get('/peminjaman', [PeminjamanController::class, 'index'])->middleware('permission:Peminjaman,all')->name('peminjaman.index');
