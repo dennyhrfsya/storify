@@ -17,7 +17,7 @@
                             <a type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false"
                                 class="dx-notif-wrapper">
                                 <img src="{{ asset('images/bell.svg') }}" alt="avatar" class="dx-h-8 dx-ml-4">
-                                {{-- <span id="notifBadge" class="dx-badge-pulse">0</span> --}}
+                                <span {{-- id="notifBadge"  --}} class="dx-badge-pulse">0</span>
                             </a>
                             <div class="dropdown-menu dx-edit-dropdown" aria-labelledby="dropdownMenu1">
                                 <div class="dx-px-4 dx-pt-3">

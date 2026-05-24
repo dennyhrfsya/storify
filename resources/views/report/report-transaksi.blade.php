@@ -179,7 +179,8 @@
                 @endif
             </div>
         </div>
-        @push('scripts')
-            <script src="{{ asset('js/report-transaksi.js') }}"></script>
-        @endpush
-    @endsection
+    </div>
+    @push('scripts')
+        <script src="{{ asset('js/report-transaksi.js') }}"></script>
+    @endpush
+@endsection

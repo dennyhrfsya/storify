@@ -126,6 +126,12 @@
                                         <td>
                                             <a href="{{ route('aset.detail', $aset->id) }}"
                                                 class="dx-badge dx-badge-info">Detail</a>
+                                            <a href="#qrAsetModal{{ $aset->id }}" data-bs-toggle="modal"
+                                                data-bs-target="#qrAsetModal{{ $aset->id }}"
+                                                class="dx-badge dx-badge-warning">QR</a>
+                                            @include('aset.partials.qrcode-modal-aset', [
+                                                'aset' => $aset,
+                                            ])
                                             @if ($perm && $perm->ubah)
                                                 <a href="{{ route('aset.ubah', $aset->id) }}"
                                                     class="dx-badge dx-badge-primary">Ubah</a>

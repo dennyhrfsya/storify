@@ -1,0 +1,81 @@
+/* ==================================================================
+   CSS ISOLASI STIKER THERMAL (30mm x 20mm) - FIX 1 HALAMAN PAS & CENTER
+   ================================================================== */
+@media print {
+
+    /* Sembunyikan semua elemen bawaan web */
+    body * {
+        display: none !important;
+    }
+
+    /* Aktifkan area cetak kloningan stiker */
+    .dx-thermal-sticker-container,
+    .dx-thermal-sticker-container * {
+        display: block !important;
+    }
+
+    html,
+    body {
+        background: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 30mm !important;
+        height: 20mm !important;
+        overflow: hidden !important;
+    }
+
+    /* Lembar Pembungkus Kertas Stiker 30x20mm */
+    .dx-thermal-sticker-container {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 30mm !important;
+        height: 20mm !important;
+        background: #ffffff !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+
+        /* KALIBRASI AMAN: 1.5mm adalah batas tengah matematis untuk QR 17mm di stiker tinggi 20mm */
+        padding-top: 1.5mm !important;
+        padding-left: 0 !important;
+        /* Biarkan 0 agar flexbox meratakan tengah secara horizontal */
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        /* Mengunci QR tetap di tengah kiri-kanan */
+        justify-content: flex-start !important;
+    }
+
+    /* Kotak Penampung QR Code */
+    .dx-thermal-sticker-container .dx-sticker-qr-box {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+
+        /* Gunakan ukuran 17mm agar seimbang dan tidak terpotong margin fisik printer */
+        width: 17mm !important;
+        height: 17mm !important;
+
+        /* Auto margin kiri-kanan memaksa QR tetap berada di tengah horizontal stiker */
+        margin: 0 auto !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+
+    /* Memaksa elemen vektor SVG memenuhi ruang 17mm */
+    .dx-thermal-sticker-container .dx-sticker-qr-box svg {
+        width: 17mm !important;
+        height: 17mm !important;
+        max-width: 17mm !important;
+        max-height: 17mm !important;
+        display: block !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+    }
+
+    @page {
+        size: 30mm 20mm;
+        margin: 0 !important;
+    }
+}

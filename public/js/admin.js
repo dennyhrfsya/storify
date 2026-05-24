@@ -223,35 +223,35 @@ document.querySelectorAll('.counter').forEach(el => {
 
 //  Notif Badge
 //* DOM, Block Scope dan Arrow Function
-{
-    // Memilih elemen badge menggunakan const (Block Scope)
-    const badge = document.querySelector('#notifBadge');
+// {
+//     // Memilih elemen badge menggunakan const (Block Scope)
+//     const badge = document.querySelector('#notifBadge');
 
-    /**
-     * Arrow Function untuk mengatur tampilan badge
-     * @param {number} count - Jumlah notifikasi
-     */
-    const renderBadge = (count) => {
-        // Konversi ke number untuk memastikan validasi
-        const value = Number(count);
+//     /**
+//      * Arrow Function untuk mengatur tampilan badge
+//      * @param {number} count - Jumlah notifikasi
+//      */
+//     const renderBadge = (count) => {
+//         // Konversi ke number untuk memastikan validasi
+//         const value = Number(count);
 
-        if (value > 0) {
-            badge.textContent = value > 99 ? '99+' : value;
-            badge.style.display = 'flex'; // Munculkan badge
-        } else {
-            badge.style.display = 'none'; // Sembunyikan jika 0 atau kurang
-        }
-    };
+//         if (value > 0) {
+//             badge.textContent = value > 99 ? '99+' : value;
+//             badge.style.display = 'flex'; // Munculkan badge
+//         } else {
+//             badge.style.display = 'none'; // Sembunyikan jika 0 atau kurang
+//         }
+//     };
 
-    // Jalankan pengecekan pertama kali saat halaman dimuat
-    renderBadge(badge.textContent);
+//     // Jalankan pengecekan pertama kali saat halaman dimuat
+//     renderBadge(badge.textContent);
 
-    // Contoh penggunaan: Panggil fungsi ini saat ada data baru
-    // window.updateNotify = (n) => renderBadge(n);
+//     // Contoh penggunaan: Panggil fungsi ini saat ada data baru
+//     // window.updateNotify = (n) => renderBadge(n);
 
-    // Simulasi: Angka berubah dari 0 ke 5 setelah 2 detik
-    setTimeout(() => renderBadge(5), 2000);
-}
+//     // Simulasi: Angka berubah dari 0 ke 5 setelah 2 detik
+//     setTimeout(() => renderBadge(5), 2000);
+// }
 
 //* Validasi
 //* DOM, Block Scope dan Arrow Function
