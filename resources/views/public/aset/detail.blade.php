@@ -76,7 +76,7 @@
 
             <nav class="dx-nav-capsule">
 
-                <a href="{{ route('public.aset.detail', ['kode_barang' => urlencode($aset->kode_barang)]) }}"
+                <a href="{{ route('public.aset.detail', ['kode_barang' => base64_encode($aset->kode_barang)]) }}"
                     class="dx-nav-item is-active">
                     <img src="{{ asset('images/checks-bold.svg') }}" alt="Data Icon" class="dx-nav-icon">
                     <span class="dx-nav-text">Data</span>

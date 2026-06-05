@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Aset;
+use Illuminate\Http\Request;
 
 class PublicAsetController extends Controller
 {
     public function handleScan($kode_barang)
     {
         // Decode jika kode barang mengandung garis miring (misal: BRG%2F001 -> BRG/001)
-        $cleanKode = urldecode($kode_barang);
+    $cleanKode = base64_decode($kode_barang);
 
         // Validasi ketersediaan data di database
         $asetExists = Aset::where('kode_barang', $cleanKode)->exists();
@@ -20,12 +21,12 @@ class PublicAsetController extends Controller
         }
 
         // Teruskan ke halaman detail publik dengan kode barang yang aman di URL
-        return redirect()->route('public.aset.detail', ['kode_barang' => urlencode($cleanKode)]);
+        return redirect()->route('public.aset.detail', ['kode_barang' => base64_encode($cleanKode)]);
     }
 
     public function asetDetail($kode_barang)
     {
-        $cleanKode = urldecode($kode_barang);
+        $cleanKode = base64_decode($kode_barang);
 
         // Mengambil data aset beserta relasi peminjaman dan pengembalian yang melekat di dalamnya
         $aset = Aset::with(['peminjaman.pengembalian'])
