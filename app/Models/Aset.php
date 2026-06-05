@@ -44,6 +44,6 @@ class Aset extends Model
 
     public function peminjaman()
     {
-        return $this->hasMany(Peminjaman::class, 'id_aset');
+        return $this->hasMany(Peminjaman::class, 'id_aset')->orderBy('id','DESC');
     }
 }

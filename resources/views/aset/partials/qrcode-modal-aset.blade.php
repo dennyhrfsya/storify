@@ -18,7 +18,13 @@
                 <div class="dx-modal-body-input text-center">
                     <h6 id="qrAsetModal{{ $aset->id }}" class="dx-modal-title">QR Code</h6>
                     <div id="print-area-{{ $aset->id }}" class="d-flex justify-content-center">
-                        {!! \Milon\Barcode\Facades\DNS2DFacade::getBarcodeSVG($aset->kode_barang, 'QRCODE', 4, 4) !!}
+                        {{-- Menggunakan route public.aset.scan yang mengarah ke /aset/scan/ --}}
+                        {!! \Milon\Barcode\Facades\DNS2DFacade::getBarcodeSVG(
+                            route('public.aset.scan', ['kode_barang' => urlencode($aset->kode_barang)]),
+                            'QRCODE',
+                            4,
+                            4,
+                        ) !!}
                     </div>
                     <p class="dx-text-base dx-font-regular dx-text-biru dx-mt-4">
                         {{ $aset->kode_barang }}

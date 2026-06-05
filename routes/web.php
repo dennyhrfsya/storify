@@ -10,12 +10,29 @@ use App\Http\Controllers\ReportTransaksiController;
 use App\Http\Controllers\StokBarangController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PublicAsetController;
 use Illuminate\Support\Facades\Route;
 
+
+// 1. PUBLIC ROUTES (Bisa diakses oleh siapapun: guest maupun yang sudah login)
+Route::redirect('/', '/login');
+
+//* Aset Scan QR
+Route::get('/aset/scan/{kode_barang}', [PublicAsetController::class, 'handleScan'])
+    ->name('public.aset.scan')
+    ->where('kode_barang', '.*');
+
+Route::get('/aset/detail/{kode_barang}', [PublicAsetController::class, 'asetDetail'])
+    ->name('public.aset.detail')
+    ->where('kode_barang', '.*');
+
+// 2. GUEST ONLY ROUTES (Hanya untuk orang yang belum login)
 Route::middleware('guest')->group(function () {
-    Route::redirect('/', '/login');
+    // Taruh route login dan register kamu di sini
+    // Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 });
 
+// 3. AUTHENTICATED ROUTES (Hanya untuk Admin/User yang sudah login)
 Route::middleware('auth')->group(function () {
     //* Dashboard
     Route::view('/dashboard', 'dashboard.index')->name('dashboard');
@@ -43,7 +60,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/aset/{id}', [AsetController::class, 'update'])->middleware('permission:Inventori,ubah')->name('aset.update');
     Route::delete('/aset/{id}', [AsetController::class, 'hapus'])->middleware('permission:Inventori,hapus')->name('aset.hapus');
 
-    //* Peminjaman
+    //* Peminjama
     Route::get('/peminjaman', [PeminjamanController::class, 'index'])->middleware('permission:Peminjaman,all')->name('peminjaman.index');
     Route::get('/peminjaman/tambah', [PeminjamanController::class, 'tambah'])->middleware('permission:Peminjaman,tambah')->name('peminjaman.tambah');
     Route::post('/peminjaman', [PeminjamanController::class, 'simpan'])->middleware('permission:Peminjaman,tambah')->name('peminjaman.simpan');
