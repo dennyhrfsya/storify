@@ -19,6 +19,20 @@
 
 <body>
 
+    @php
+        if (!function_exists('getOrdinal')) {
+            function getOrdinal($number)
+            {
+                $ends = ['th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th'];
+                if ($number % 100 >= 11 && $number % 100 <= 13) {
+                    return $number . 'th';
+                } else {
+                    return $number . $ends[$number % 10];
+                }
+            }
+        }
+    @endphp
+
     <div class="dx-bg-phone">
         <header class="dx-header">
             <img src="{{ asset('images/logo-storify-white.png') }}" alt="Storify Logo" class="dx-logo-image">
@@ -31,19 +45,8 @@
                     <p class="dx-title-kd">{{ $aset->kode_barang }}</p>
                     <p class="dx-title-ktg">{{ $aset->kategori }}</p>
                 </div>
-
                 {{-- Looping data dari relasi $aset->peminjaman --}}
-                @forelse($aset->peminjaman as $index => $pinjam)
-                    {{-- LOGIKA BARU: Menghitung angka urutan dan mengubahnya ke format ordinal (1st, 2nd, 3rd) --}}
-                    @php
-                        // Tentukan angka dasar (ambil dari database atau hitung mundur index loop)
-                        $angkaUsage = $pinjam->urutan_pemakaian ?? $aset->peminjaman->count() - $index;
-
-                        // Inisialisasi NumberFormatter dengan aturan ORDINAL (urutan bahasa inggris)
-                        $formatter = new \NumberFormatter('en_US', \NumberFormatter::ORDINAL);
-                        $usageOrdinal = $formatter->format($angkaUsage); // Output: 1st, 2nd, 3rd, 4th, dst.
-                    @endphp
-
+                @forelse($aset->peminjaman->sortByDesc('tanggal_peminjaman') as $pinjam)
                     <div class="dx-item">
                         <div class="dx-item-info">
                             <h3>{{ $pinjam->user_aset }}</h3>
@@ -61,7 +64,9 @@
                             @endif
                         </div>
                         <div class="dx-badge">
-                            <span class="dx-badge-text">{{ $usageOrdinal }} Usage</span>
+                            <span class="dx-badge-text">
+                                {{ getOrdinal($loop->count - $loop->index) }} Usage
+                            </span>
                         </div>
                     </div>
                 @empty
