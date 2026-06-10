@@ -19,8 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         btnLogin.classList.add('is-loading');
 
-        // btnLoader.style.setProperty('display', 'none');
-
         if (btnLoader) {
             btnLoader.style.setProperty('display', 'inline-block', 'important');
         }
