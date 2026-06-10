@@ -11,7 +11,7 @@
             </a>
             <h3 class="dx-text-biru dx-text-lg dx-font-bold dx-mb-4">Login</h3>
             <p class="dx-text-biru dx-mb-10">Masuk dengan menggunakan email dan password anda</p>
-            <form method="POST" action="{{ route('login') }}" autocomplete="off" novalidate>
+            <form method="POST" action="{{ route('login') }}" autocomplete="off" novalidate id="login-form">
                 @csrf
                 <div class="dx-mb-4 dx-shadow">
                     <div class="position-relative">
@@ -49,8 +49,12 @@
                             password?</a>
                     </div>
                     <div class="dx-my-4">
-                        <button type="submit" class="btn dx-btn-primary dx-mr-4">Login</button>
-                        <button type="reset" class="btn dx-btn-secondary">Reset</button>
+                        <button type="submit" id="btn-login" class="dx-btn dx-btn-primary dx-mr-4">
+                            <span id="btn-text">Login</span>
+                            <span id="btn-loader" class="dx-loader"></span>
+                        </button>
+
+                        <button type="reset" id="btn-reset" class="dx-btn dx-btn-secondary">Reset</button>
                     </div>
                 </div>
             </form>
@@ -64,5 +68,6 @@
     </div>
     @push('scripts')
         <script src="{{ asset('js/javascript-icon-password.js') }}"></script>
+        @vite('resources/js/pages/login.js')
     @endpush
 @endsection
