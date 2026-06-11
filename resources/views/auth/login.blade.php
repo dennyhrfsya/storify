@@ -48,8 +48,8 @@
                             class="dx-text-xs dx-text-biru hover:dx-text-biru-muda hover:dx-no-underline dx-no-underline">Lupa
                             password?</a>
                     </div>
-                    <div class="dx-my-4">
-                        <button type="submit" id="btn-login" class="dx-btn dx-btn-primary dx-mr-4">
+                    <div class="dx-my-4 d-flex gap-2">
+                        <button type="submit" id="btn-login" class="dx-btn dx-btn-primary">
                             <span id="btn-text">Login</span>
                             <span id="btn-loader" class="dx-loader"></span>
                         </button>
