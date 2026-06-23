@@ -93,12 +93,17 @@ body {
   font-weight: 700;
   font-size: 18px;
 }
-.dx-title-content .dx-font-kd {
+.dx-title-content .dx-text-kd {
   color: #535353;
   font-weight: 500;
   font-size: 14px;
 }
-.dx-title-content .dx-font-ktg {
+.dx-title-content .dx-text-sn {
+  color: #535353;
+  font-weight: 500;
+  font-size: 12px;
+}
+.dx-title-content .dx-text-ktg {
   color: #535353;
   font-width: 500;
   font-size: 12px;
