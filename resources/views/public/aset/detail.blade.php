@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    {{-- Storify UI/UX --}}
     <link rel="stylesheet" href="{{ asset('css/storify-base-style-v2.css') }}">
 </head>
 
