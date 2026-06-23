@@ -42,8 +42,9 @@
             <main class="dx-main-content">
                 <div class="dx-title-content">
                     <h1 class="dx-title-nama">{{ $aset->nama_barang }}</h1>
-                    <p class="dx-title-kd">{{ $aset->kode_barang }}</p>
-                    <p class="dx-title-ktg">{{ $aset->kategori }}</p>
+                    <p class="dx-text-kd">{{ $aset->kode_barang }}</p>
+                    <p class="dx-text-sn"><b>SN</b> : {{ $aset->nomor_seri }}</p>
+                    <p class="dx-text-ktg">{{ $aset->kategori }}</p>
                 </div>
                 {{-- Looping data dari relasi $aset->peminjaman --}}
                 @forelse($aset->peminjaman->sortByDesc('tanggal_peminjaman') as $pinjam)
