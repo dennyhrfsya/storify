@@ -44,7 +44,7 @@
                 <div class="dx-title-content">
                     <h1 class="dx-title-nama">{{ $aset->nama_barang }}</h1>
                     <p class="dx-text-kd">{{ $aset->kode_barang }}</p>
-                    <p class="dx-text-sn"><b>SN</b> : {{ $aset->nomor_seri }}</p>
+                    <p class="dx-text-sn">Serial Number {{ $aset->nomor_seri }}</p>
                     <p class="dx-text-ktg">{{ $aset->kategori }}</p>
                 </div>
                 {{-- Looping data dari relasi $aset->peminjaman --}}
